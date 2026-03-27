@@ -1,0 +1,114 @@
+/* pages/user/index.wxss */
+.user-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 16px;
+}
+
+.user-header {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.user-info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 16px;
+  background: #eee;
+}
+
+.info-col {
+  flex: 1;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 8px;
+  color: #333;
+}
+
+.role-tag {
+  font-size: 10px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.mobile {
+  font-size: 14px;
+  color: #999;
+}
+
+.stats-row {
+  display: flex;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.stat-val {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.unlogin-view {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.login-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.menu-item {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}

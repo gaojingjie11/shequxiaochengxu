@@ -1,0 +1,48 @@
+<view class="login-page">
+  <view class="login-container">
+    <view class="card login-card">
+      <view class="login-title">欢迎回来</view>
+      <view class="login-subtitle">登录智慧社区</view>
+
+      <view class="tabs">
+        <view class="tab-item {{loginType === 'password' ? 'active' : ''}}" bindtap="switchTab" data-type="password">密码登录</view>
+        <view class="tab-item {{loginType === 'code' ? 'active' : ''}}" bindtap="switchTab" data-type="code">验证码登录</view>
+      </view>
+
+      <view class="login-form">
+        <block wx:if="{{loginType === 'password'}}">
+          <view class="form-group">
+            <text class="label">手机号/用户名</text>
+            <input class="input" type="text" placeholder="请输入手机号/用户名" bindinput="onInput" data-field="mobile" value="{{mobile}}" />
+          </view>
+          <view class="form-group">
+            <text class="label">密码</text>
+            <input class="input" type="password" placeholder="请输入密码" bindinput="onInput" data-field="password" value="{{password}}" />
+          </view>
+        </block>
+
+        <block wx:else>
+           <view class="form-item" wx:if="{{loginType === 'code'}}">
+      <view class="input-wrap">
+        <text class="label">手机号</text>
+        <input class="input" type="number" placeholder="请输入手机号" placeholder-class="placeholder" bindinput="onInput" data-field="mobile" value="{{mobile}}" />
+      </view>
+      <view class="input-wrap">
+        <text class="label">验证码</text>
+        <input class="input" type="number" placeholder="请输入验证码" placeholder-class="placeholder" bindinput="onInput" data-field="code" value="{{code}}" />
+        <view class="code-btn {{timer > 0 ? 'disabled' : ''}}" bindtap="sendCode">
+          {{timer > 0 ? timer + 's' : '获取验证码'}}
+        </view>
+      </view>
+    </view>
+        </block>
+        
+        <view class="form-footer">
+          <text class="link" bindtap="goToRegister">还没有账号？注册</text>
+        </view>
+
+        <button class="btn btn-primary btn-lg mt-md" bindtap="handleLogin" loading="{{loading}}">登录</button>
+      </view>
+    </view>
+  </view>
+</view>

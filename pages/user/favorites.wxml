@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="product-list" wx:if="{{products.length > 0}}">
+    <view class="product-item card" wx:for="{{products}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <image class="product-img" src="{{item.image_url}}" mode="aspectFill"></image>
+      <view class="product-info">
+        <view class="product-name">{{item.name}}</view>
+        <view class="product-price">¥{{item.price}}</view>
+        <view class="action-row">
+            <view class="delete-btn" catchtap="removeFavorite" data-id="{{item.id}}" data-index="{{index}}">取消收藏</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="empty-state" wx:else>
+    <image src="/assets/icons/empty.png" mode="widthFix" class="empty-icon"></image>
+    <view class="empty-text">暂无收藏商品</view>
+  </view>
+</view>

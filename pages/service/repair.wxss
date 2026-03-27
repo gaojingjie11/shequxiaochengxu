@@ -1,0 +1,113 @@
+/* pages/service/repair.wxss */
+.repair-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 16px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.repair-form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.form-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.picker-val {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.input, .textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.textarea {
+  height: 100px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.repair-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.repair-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.repair-category {
+  font-weight: 600;
+  flex: 1;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.tag-info { background: #e6f7ff; color: #1890ff; }
+.tag-warning { background: #fffbe6; color: #faad14; }
+.tag-status { background: #f0f0f0; color: #666; }
+
+.repair-content {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.repair-result {
+  background: #f9f9f9;
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.bold { font-weight: 600; }
+
+.repair-time {
+  font-size: 12px;
+  color: #999;
+}
+
+.empty-state { text-align: center; color: #999; padding: 20px; }

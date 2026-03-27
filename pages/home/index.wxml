@@ -1,0 +1,54 @@
+<view class="home-page">
+  <view class="banner">
+    <view class="container">
+      <view class="banner-title">欢迎来到智慧社区</view>
+      <view class="banner-subtitle">让生活更便捷、更智能、更美好</view>
+    </view>
+  </view>
+
+  <view class="container">
+    <!-- Quick Menu -->
+    <view class="quick-menu">
+      <navigator url="/pages/mall/index" open-type="switchTab" class="quick-item">
+        <view class="quick-icon">🛒</view>
+        <view class="quick-text">社区商城</view>
+      </navigator>
+      <navigator url="/pages/service/notice" class="quick-item">
+        <view class="quick-icon">📢</view>
+        <view class="quick-text">公告通知</view>
+      </navigator>
+      <navigator url="/pages/service/repair" class="quick-item">
+        <view class="quick-icon">🔧</view>
+        <view class="quick-text">报修投诉</view>
+      </navigator>
+      <navigator url="/pages/service/visitor" class="quick-item">
+        <view class="quick-icon">👥</view>
+        <view class="quick-text">访客登记</view>
+      </navigator>
+      <!-- Data screen might not be suitable for MP, maybe omit or link to webview -->
+      <view class="quick-item" bindtap="showTip">
+        <view class="quick-icon">📊</view>
+        <view class="quick-text">数据大屏</view>
+      </view>
+    </view>
+
+    <!-- Notices -->
+    <view class="section">
+      <view class="section-title">最新公告</view>
+      <view class="notice-list">
+        <block wx:for="{{notices}}" wx:key="id">
+          <view class="notice-item card" bindtap="goToNotice" data-id="{{item.id}}">
+            <view class="notice-title">{{item.title}}</view>
+            <view class="notice-meta">
+              <text>{{item.publisher}}</text>
+              <text>{{item.created_at}}</text>
+            </view>
+          </view>
+        </block>
+        <view wx:if="{{notices.length === 0}}" class="empty-state">
+           <text>暂无公告</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

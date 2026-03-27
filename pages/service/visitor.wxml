@@ -1,0 +1,54 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab-item {{activeTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">访客登记</view>
+    <view class="tab-item {{activeTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">访客记录</view>
+  </view>
+
+  <!-- Register Form -->
+  <view class="tab-content" wx:if="{{activeTab === 0}}">
+    <view class="form-card card">
+      <view class="form-item">
+        <text class="label">访客姓名</text>
+        <input class="input" placeholder="请输入姓名" bindinput="onInput" data-field="name" value="{{name}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">手机号码</text>
+        <input class="input" type="number" placeholder="请输入手机号" bindinput="onInput" data-field="mobile" value="{{mobile}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">来访时间</text>
+         <!-- Use simple input for now or picker if needed, simplified for text input due to format variance -->
+        <input class="input" placeholder="yyyy-MM-dd HH:mm" bindinput="onInput" data-field="visit_time" value="{{visit_time}}" />
+      </view>
+      <view class="form-item">
+        <text class="label">来访事由</text>
+        <input class="input" placeholder="例如：亲友拜访" bindinput="onInput" data-field="reason" value="{{reason}}" />
+      </view>
+      <button class="submit-btn" type="primary" bindtap="handleSubmit">提交登记</button>
+    </view>
+  </view>
+
+  <!-- History List -->
+  <view class="tab-content" wx:if="{{activeTab === 1}}">
+    <button class="refresh-btn" size="mini" bindtap="getHistory">刷新</button>
+    <view class="history-list">
+      <block wx:for="{{historyList}}" wx:key="id">
+        <view class="history-item card">
+             <view class="row">
+                <text class="name">{{item.visitor_name}}</text>
+                <text class="status status-{{item.status}}">{{item.status === 1 ? '已通过' : (item.status === 2 ? '已拒绝' : '待审核')}}</text>
+             </view>
+             <view class="row sub">
+                <text>手机：{{item.visitor_mobile}}</text>
+                <text>时间：{{item.visit_time}}</text>
+             </view>
+             <view class="row sub" wx:if="{{item.plate_number}}">
+                <text>车牌：{{item.plate_number}}</text>
+             </view>
+             <view class="reason">事由：{{item.reason}}</view>
+        </view>
+      </block>
+       <view wx:if="{{historyList.length === 0}}" class="empty-text">暂无记录</view>
+    </view>
+  </view>
+</view>

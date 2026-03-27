@@ -1,0 +1,91 @@
+.container {
+  padding: 20rpx;
+}
+
+.tabs {
+  display: flex;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 24rpx 0;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.tab-item.active {
+  color: #fff;
+  background: #409EFF;
+  font-weight: bold;
+}
+
+.form-card {
+  padding: 30rpx;
+}
+
+.form-item {
+  margin-bottom: 30rpx;
+}
+
+.label {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.input {
+  border: 1rpx solid #ddd;
+  border-radius: 8rpx;
+  padding: 16rpx;
+  font-size: 28rpx;
+}
+
+.submit-btn {
+  margin-top: 40rpx;
+  width: 100%;
+}
+
+.history-item {
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.name {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.sub {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.reason {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 10rpx;
+  padding-top: 10rpx;
+  border-top: 1rpx dashed #eee;
+}
+
+.empty-text {
+  text-align: center;
+  color: #999;
+  margin-top: 50rpx;
+}
+
+.refresh-btn {
+    margin-bottom: 10px;
+}

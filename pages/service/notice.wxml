@@ -1,0 +1,23 @@
+<view class="notice-page">
+  <view class="notice-list">
+    <block wx:for="{{notices}}" wx:key="id">
+      <view class="notice-card card">
+        <view class="notice-header">
+          <view class="notice-title">{{item.title}}</view>
+          <view class="notice-meta">
+            <text class="publisher">{{item.publisher}}</text>
+            <text class="date">{{item.created_at}}</text>
+          </view>
+        </view>
+        <view class="notice-content">{{item.content}}</view>
+        <view class="notice-footer">
+          <text class="views">👁 {{item.view_count || 0}} 次浏览</text>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-text">加载中...</view>
+  <view wx:if="{{!loading && notices.length === 0}}" class="empty-state">暂无公告</view>
+  <view wx:if="{{!loading && notices.length > 0 && notices.length >= total}}" class="no-more">没有更多了</view>
+</view>

@@ -1,0 +1,53 @@
+<view class="mall-page">
+  <!-- Search -->
+  <view class="search-section">
+    <view class="search-bar">
+      <icon type="search" size="16" class="search-icon"></icon>
+      <input 
+        class="search-input" 
+        placeholder="搜索商品..." 
+        confirm-type="search" 
+        bindconfirm="handleSearch" 
+        bindinput="onSearchInput"
+        value="{{searchKeyword}}"
+      />
+    </view>
+  </view>
+
+  <!-- Categories -->
+  <scroll-view scroll-x class="category-scroll" enable-flex>
+    <view 
+      class="category-item {{selectedCategory === 0 ? 'active' : ''}}" 
+      bindtap="selectCategory" 
+      data-id="{{0}}"
+    >全部</view>
+    <block wx:for="{{categories}}" wx:key="id">
+      <view 
+        class="category-item {{selectedCategory === item.id ? 'active' : ''}}" 
+        bindtap="selectCategory" 
+        data-id="{{item.id}}"
+      >{{item.name}}</view>
+    </block>
+  </scroll-view>
+
+  <!-- Product List -->
+  <view class="product-grid">
+    <block wx:for="{{products}}" wx:key="id">
+      <navigator url="/pages/mall/detail?id={{item.id}}" class="product-card">
+        <image class="product-img" src="{{item.image_url || '/assets/icons/mall.png'}}" mode="aspectFill"></image>
+        <view class="product-info">
+          <view class="product-name">{{item.name}}</view>
+          <view class="product-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-val">{{item.price}}</text>
+            <text wx:if="{{item.is_promotion}}" class="promo-tag">促销</text>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+  
+  <view wx:if="{{loading}}" class="loading-more">加载中...</view>
+  <view wx:if="{{!loading && products.length === 0}}" class="empty-state">暂无商品</view>
+  <view wx:if="{{!loading && products.length > 0 && products.length >= total}}" class="no-more">没有更多了</view>
+</view>

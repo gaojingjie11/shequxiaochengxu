@@ -1,0 +1,36 @@
+<view class="cart-page">
+  <view class="cart-list" wx:if="{{cartItems.length > 0}}">
+    <block wx:for="{{cartItems}}" wx:key="id">
+      <view class="cart-item card">
+        <image class="item-image" src="{{item.product.image_url || '/assets/icons/mall.png'}}" mode="aspectFill"></image>
+        <view class="item-info">
+          <view class="item-name">{{item.product.name}}</view>
+          <view class="item-price">¥{{item.product.price}}</view>
+        </view>
+        
+        <view class="quantity-control">
+          <view class="qty-btn" bindtap="updateQuantity" data-index="{{index}}" data-delta="{{-1}}">-</view>
+          <view class="qty-num">{{item.quantity}}</view>
+          <view class="qty-btn" bindtap="updateQuantity" data-index="{{index}}" data-delta="{{1}}">+</view>
+        </view>
+        
+        <view class="delete-btn" bindtap="deleteItem" data-id="{{item.id}}">删除</view>
+      </view>
+    </block>
+  </view>
+  
+  <view class="empty-state" wx:else>
+    <view class="empty-icon">🛒</view>
+    <view>购物车是空的</view>
+    <navigator url="/pages/mall/index" open-type="switchTab" class="btn btn-primary mt-md">去购物</navigator>
+  </view>
+
+  <!-- Footer -->
+  <view class="cart-footer" wx:if="{{cartItems.length > 0}}">
+    <view class="total-info">
+      <text>总计:</text>
+      <text class="total-price">¥{{totalPrice}}</text>
+    </view>
+    <button class="btn btn-primary checkout-btn" bindtap="checkout">结算</button>
+  </view>
+</view>

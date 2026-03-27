@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="tabs">
+    <view class="tab-item {{activeTab === 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">待缴费</view>
+    <view class="tab-item {{activeTab === 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">已缴费</view>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="fee-card card">
+        <view class="header">
+          <text class="title">{{item.title}}</text>
+          <text class="amount">¥{{item.amount}}</text>
+        </view>
+        <view class="info">
+          <!-- Unpaid: Show billing month -->
+           <view class="row" wx:if="{{activeTab === 0}}">
+             <text class="label">账单月份：</text>
+             <text class="val">{{item.month}}</text> 
+          </view>
+          <!-- Paid: Show Payment Date -->
+           <view class="row" wx:if="{{activeTab === 1}}">
+             <text class="label">缴费时间：</text>
+             <text class="val">{{item.pay_time}}</text> 
+          </view>
+        </view>
+        <view class="footer" wx:if="{{activeTab === 0}}">
+          <button class="pay-btn" size="mini" type="primary" bindtap="handlePay" data-id="{{item.id}}">立即缴费</button>
+        </view>
+        <view class="footer" wx:else>
+           <text class="status-tag">已缴</text>
+        </view>
+      </view>
+    </block>
+    
+    <view wx:if="{{list.length === 0}}" class="empty-state">
+      <image src="/assets/icons/service.png" mode="widthFix" class="empty-icon"></image>
+      <view class="empty-text">暂无相关费用</view>
+    </view>
+  </view>
+</view>

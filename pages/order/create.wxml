@@ -1,0 +1,42 @@
+<view class="create-order-page">
+  <view class="container">
+    <view class="page-title">确认订单</view>
+    
+    <!-- Store Selector -->
+    <view class="section card">
+      <view class="section-title">选择服务门店</view>
+      <picker range="{{storeList}}" range-key="name" bindchange="bindStoreChange" value="{{selectedStoreIndex}}">
+        <view class="picker-row">
+          <text>{{storeList[selectedStoreIndex].name || '请选择门店'}}</text>
+          <text class="arrow">></text>
+        </view>
+      </picker>
+      <view class="store-address" wx:if="{{storeList.length > 0}}">{{storeList[selectedStoreIndex].address}}</view>
+    </view>
+    
+    <!-- Items -->
+    <view class="section card">
+      <view class="section-title">商品清单</view>
+      <view class="order-items">
+        <block wx:for="{{cartItems}}" wx:key="id">
+          <view class="item">
+            <image class="item-img" src="{{item.product.image_url || '/assets/icons/mall.png'}}" mode="aspectFill"></image>
+            <view class="item-info">
+              <view class="name">{{item.product.name}}</view>
+              <view class="price">¥{{item.product.price}} x {{item.quantity}}</view>
+            </view>
+            <view class="item-total">¥{{(item.product.price * item.quantity)}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  
+  <view class="footer-bar">
+    <view class="total-info">
+      <text>共 {{totalCount}} 件, 合计:</text>
+      <text class="total-price">¥{{totalPrice}}</text>
+    </view>
+    <button class="btn btn-primary submit-btn" bindtap="submitOrder" loading="{{submitting}}">提交订单</button>
+  </view>
+</view>

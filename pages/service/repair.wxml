@@ -1,0 +1,52 @@
+<view class="repair-page">
+  <view class="container">
+    <view class="page-title">报修投诉</view>
+    
+    <!-- Submit Form -->
+    <view class="card repair-form">
+      <view class="form-title">提交新的报修/投诉</view>
+      
+      <picker bindchange="bindTypeChange" value="{{typeIndex}}" range="{{types}}">
+        <view class="form-group">
+          <text class="label">类型</text>
+          <view class="picker-val">{{types[typeIndex]}}</view>
+          <text class="arrow">></text>
+        </view>
+      </picker>
+      
+      <view class="form-group">
+        <text class="label">分类</text>
+        <input class="input" placeholder="如: 水电、门窗、噪音等" bindinput="onInput" data-field="category" value="{{category}}" />
+      </view>
+      
+      <view class="form-group">
+        <text class="label">详细描述</text>
+        <textarea class="textarea" placeholder="请详细描述问题" bindinput="onInput" data-field="content" value="{{content}}"></textarea>
+      </view>
+      
+      <button class="btn btn-primary btn-submit" bindtap="submitRepair" loading="{{submitting}}">提交</button>
+    </view>
+    
+    <!-- History List -->
+    <view class="section-title">我的记录</view>
+    <view class="repair-list">
+      <block wx:for="{{repairs}}" wx:key="id">
+        <view class="repair-card card">
+          <view class="repair-header">
+            <view class="tag {{item.type === 1 ? 'tag-info' : 'tag-warning'}}">
+              {{item.type === 1 ? '报修' : '投诉'}}
+            </view>
+            <view class="repair-category">{{item.category}}</view>
+            <view class="tag tag-status">{{statusMap[item.status]}}</view>
+          </view>
+          <view class="repair-content">{{item.content}}</view>
+           <view class="repair-result" wx:if="{{item.result}}">
+            <text class="bold">处理结果: </text> {{item.result}}
+          </view>
+          <view class="repair-time">{{item.created_at}}</view>
+        </view>
+      </block>
+      <view wx:if="{{repairs.length === 0}}" class="empty-state">暂无记录</view>
+    </view>
+  </view>
+</view>

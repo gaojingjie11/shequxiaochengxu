@@ -1,0 +1,15 @@
+<view class="service-page">
+  <view class="container">
+    <view class="page-title">社区服务</view>
+
+    <view class="service-menu">
+      <block wx:for="{{menuList}}" wx:key="name">
+        <view class="service-card card" bindtap="handleTap" data-url="{{item.url}}">
+          <view class="service-icon">{{item.icon}}</view>
+          <view class="service-name">{{item.name}}</view>
+          <view class="service-desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

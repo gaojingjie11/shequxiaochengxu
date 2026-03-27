@@ -1,0 +1,43 @@
+<view class="order-page">
+  <view class="tabs">
+    <block wx:for="{{tabs}}" wx:key="status">
+       <view class="tab-item {{currentTabStatus === item.status ? 'active' : ''}}" bindtap="switchTab" data-status="{{item.status}}">
+         {{item.name}}
+       </view>
+    </block>
+  </view>
+
+  <view class="order-list">
+    <block wx:for="{{orders}}" wx:key="id">
+      <view class="order-card card" bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="order-header">
+          <text class="order-no">单号: {{item.order_no}}</text>
+          <text class="order-status {{item.status === 1 ? 'text-success' : (item.status === 0 ? 'text-warning' : '')}}">{{statusMap[item.status]}}</text>
+        </view>
+        
+        <view class="order-body">
+           <block wx:for="{{item.items}}" wx:key="id" wx:for-item="prod">
+             <view class="prod-row">
+               <image class="prod-img" src="{{prod.product.image_url || '/assets/icons/mall.png'}}" mode="aspectFill"></image>
+               <view class="prod-info">
+                 <view class="prod-name">{{prod.product.name}}</view>
+                 <view class="prod-meta">¥{{prod.price}} x {{prod.quantity}}</view>
+               </view>
+             </view>
+           </block>
+        </view>
+
+        <view class="order-footer">
+          <view class="total-row">共 {{item.items.length}} 件, 合计: <text class="bold">¥{{item.total_amount}}</text></view>
+          
+          <view class="action-row">
+             <button class="btn-mini btn-danger" wx:if="{{item.status === 0}}" bindtap="payOrder" data-id="{{item.id}}">支付</button>
+             <button class="btn-mini" wx:if="{{item.status === 0}}" bindtap="cancelOrder" data-id="{{item.id}}">取消</button>
+             <button class="btn-mini btn-primary" wx:if="{{item.status === 2}}" bindtap="confirmReceipt" data-id="{{item.id}}">确认收货</button>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{!loading && orders.length === 0}}" class="empty-state">暂无订单</view>
+  </view>
+</view>

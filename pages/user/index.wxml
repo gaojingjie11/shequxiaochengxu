@@ -1,0 +1,54 @@
+<view class="user-page">
+  <view class="user-header card">
+    <block wx:if="{{userInfo}}">
+      <view class="user-info-row">
+        <image class="avatar" src="{{userInfo.avatar || '/assets/icons/user.png'}}" mode="aspectFill"></image>
+        <view class="info-col">
+          <view class="name-row">
+            <text class="name">{{userInfo.real_name || userInfo.username}}</text>
+            <view class="role-tag">{{roleMap[userInfo.role] || '居民'}}</view>
+          </view>
+          <text class="mobile">{{userInfo.mobile}}</text>
+        </view>
+      </view>
+      
+      <view class="stats-row">
+        <view class="stat-item">
+          <view class="stat-label">余额</view>
+          <view class="stat-val">¥{{userInfo.balance || 0}}</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-label">状态</view>
+          <view class="stat-val status-{{userInfo.status}}">{{userInfo.status === 1 ? '正常' : '异常'}}</view>
+        </view>
+      </view>
+    </block>
+    
+    <block wx:else>
+      <view class="unlogin-view" bindtap="goToLogin">
+        <image class="avatar" src="/assets/icons/user.png"></image>
+        <view class="login-text">点击登录/注册</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="menu-grid">
+    <navigator url="/pages/order/list" class="menu-item card">
+      <view class="menu-icon">📦</view>
+      <view>我的订单</view>
+    </navigator>
+    <navigator url="/pages/user/favorites" class="menu-item card">
+      <view class="menu-icon">❤️</view>
+      <view>我的收藏</view>
+    </navigator>
+    <navigator url="/pages/service/index" open-type="switchTab" class="menu-item card">
+      <view class="menu-icon">🏘️</view>
+      <view>社区服务</view>
+    </navigator>
+    
+    <view class="menu-item card" bindtap="handleLogout" wx:if="{{userInfo}}">
+      <view class="menu-icon">🚪</view>
+      <view>退出登录</view>
+    </view>
+  </view>
+</view>
