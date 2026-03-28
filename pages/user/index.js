@@ -1,26 +1,33 @@
 const { getUserInfo } = require('../../api/user');
-// Note: We might want strictly user module, but logout is in auth.
-// Let's import logout from auth if needed, but user page usually just needs user info and local clear.
-// Actually logout API call is good practice.
 const { logout } = require('../../api/auth');
 
 Page({
     data: {
         userInfo: null,
-        roleMap: { 'admin': '管理员', 'store': '商户', 'property': '物业', 'user': '居民' }
+        showAIReportEntry: false,
+        roleMap: {
+            admin: '管理员',
+            store: '商户',
+            property: '物业',
+            user: '居民'
+        }
     },
 
     onShow() {
-        this.getUserInfo();
+        this.fetchUserInfo();
     },
 
-    async getUserInfo() {
+    async fetchUserInfo() {
         const token = wx.getStorageSync('token');
         if (!token) return;
 
         try {
             const res = await getUserInfo();
-            this.setData({ userInfo: res });
+            const role = (res && res.role) || '';
+            this.setData({
+                userInfo: res || null,
+                showAIReportEntry: role === 'admin' || role === 'property'
+            });
         } catch (e) {
             console.error(e);
         }
@@ -31,14 +38,17 @@ Page({
             title: '提示',
             content: '确定要退出登录吗？',
             success: async (res) => {
-                if (res.confirm) {
-                    try {
-                        await logout();
-                    } catch (e) { }
-                    wx.removeStorageSync('token');
-                    this.setData({ userInfo: null });
-                    wx.reLaunch({ url: '/pages/auth/login' });
-                }
+                if (!res.confirm) return;
+                try {
+                    await logout();
+                } catch (e) {}
+
+                wx.removeStorageSync('token');
+                this.setData({
+                    userInfo: null,
+                    showAIReportEntry: false
+                });
+                wx.reLaunch({ url: '/pages/auth/login' });
             }
         });
     },

@@ -1,0 +1,47 @@
+<view class="green-points-page">
+  <view class="hero card">
+    <view class="hero-title">绿色积分中心</view>
+    <view class="hero-desc">上传垃圾分类照片，AI 自动识别并发放积分。</view>
+    <view class="hero-stats">
+      <view class="stat">
+        <view class="stat-label">当前积分</view>
+        <view class="stat-value">{{userInfo.green_points || 0}}</view>
+      </view>
+      <view class="stat">
+        <view class="stat-label">账户余额</view>
+        <view class="stat-value">￥{{userInfo.balance || 0}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="upload-card card">
+    <view class="section-title">上传垃圾图片</view>
+    <view class="preview-wrap" wx:if="{{imagePath}}">
+      <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
+    </view>
+    <view class="btn-row">
+      <button class="btn" bindtap="chooseImage">选择图片</button>
+      <button class="btn btn-primary" bindtap="submitImage" loading="{{uploading}}" disabled="{{!imagePath || uploading}}">识别并领积分</button>
+    </view>
+
+    <view class="result-box" wx:if="{{recognitionResult}}">
+      <view class="result-title">本次奖励 {{recognitionResult.points || 0}} 积分</view>
+      <view class="result-text">{{recognitionResult.reason || '识别完成'}}</view>
+      <view class="result-text">积分余额：{{recognitionResult.green_points || userInfo.green_points || 0}}</view>
+    </view>
+  </view>
+
+  <view class="leaderboard-card card">
+    <view class="section-title">累计绿色积分排行榜</view>
+    <view wx:if="{{loadingLeaderboard}}" class="loading">加载中...</view>
+    <block wx:elif="{{leaderboard.length > 0}}">
+      <view class="rank-item" wx:for="{{leaderboard}}" wx:key="index">
+        <view class="rank-no">#{{item.rank || index + 1}}</view>
+        <image class="rank-avatar" src="{{item.avatar || '/assets/icons/user.png'}}" mode="aspectFill"></image>
+        <view class="rank-name">{{item.nickname || item.username || '匿名用户'}}</view>
+        <view class="rank-score">{{item.points || 0}} 分</view>
+      </view>
+    </block>
+    <view wx:else class="empty">暂无排行榜数据</view>
+  </view>
+</view>

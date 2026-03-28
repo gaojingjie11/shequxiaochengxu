@@ -1,70 +1,78 @@
-const BASE_URL = 'http://43.138.85.114:81/api/v1';
+const BASE_URL = 'http://42.193.104.173:8082/api/v1';
+
+const normalizeErrorMessage = (msg, fallback = '请求失败') => {
+  const text = String(msg || '').trim();
+  if (!text) return fallback;
+
+  if (/invalid payment password/i.test(text)) {
+    return '支付密码错误，请重试';
+  }
+
+  return text;
+};
 
 const request = (options) => {
   return new Promise((resolve, reject) => {
-    // Get token from storage
     const token = wx.getStorageSync('token');
-
-    // Construct header
     const header = {
       'Content-Type': 'application/json',
       ...options.header
     };
 
     if (token) {
-      header['Authorization'] = `Bearer ${token}`;
+      header.Authorization = `Bearer ${token}`;
     }
 
     wx.request({
       url: `${BASE_URL}${options.url}`,
       method: options.method || 'GET',
       data: options.data,
-      header: header,
+      timeout: options.timeout || 10000,
+      header,
       success: (res) => {
-        // HTTP level check
         if (res.statusCode >= 200 && res.statusCode < 300) {
-          const data = res.data;
-          // Business level check (matching Vue frontend logic)
-          // { code: 200, data: ..., msg: "success" }
+          const data = res.data || {};
           if (data.code === 200) {
             resolve(data.data);
-          } else if (data.code === 401) {
+            return;
+          }
+
+          if (data.code === 401) {
             wx.removeStorageSync('token');
             wx.redirectTo({ url: '/pages/auth/login' });
-            // reject(data.msg || '登录已失效'); 
-            // Don't reject if redirecting? Or reject to stop loading spinners.
             reject(data);
-          } else {
-            wx.showToast({
-              title: data.msg || '请求失败',
-              icon: 'none'
-            });
-            reject(data);
+            return;
           }
-        } else {
-          // HTTP Error
-          if (res.statusCode === 401) {
-            wx.removeStorageSync('token');
-            wx.redirectTo({
-              url: '/pages/auth/login',
-            });
-          }
-          reject(res);
+
           wx.showToast({
-            title: res.data.message || '请求失败',
+            title: normalizeErrorMessage(data.msg, '请求失败'),
             icon: 'none'
           });
+          reject(data);
+          return;
         }
+
+        if (res.statusCode === 401) {
+          wx.removeStorageSync('token');
+          wx.redirectTo({ url: '/pages/auth/login' });
+        }
+
+        wx.showToast({
+          title: normalizeErrorMessage(res?.data?.msg || res?.data?.message, '请求失败'),
+          icon: 'none'
+        });
+        reject(res);
       },
       fail: (err) => {
-        reject(err);
         wx.showToast({
           title: '网络错误',
           icon: 'none'
         });
+        reject(err);
       }
     });
   });
 };
 
 module.exports = request;
+module.exports.BASE_URL = BASE_URL;

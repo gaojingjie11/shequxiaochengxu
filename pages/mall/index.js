@@ -12,6 +12,24 @@ Page({
         loading: false
     },
 
+    isProductOnline(product) {
+        if (!product || typeof product !== 'object') return false;
+
+        if (product.status !== undefined && product.status !== null) {
+            return Number(product.status) === 1;
+        }
+
+        if (product.is_on_sale !== undefined && product.is_on_sale !== null) {
+            return Number(product.is_on_sale) === 1;
+        }
+
+        if (product.is_active !== undefined && product.is_active !== null) {
+            return Number(product.is_active) === 1;
+        }
+
+        return true;
+    },
+
     onLoad() {
         this.getCategories();
         this.getProducts(true);
@@ -64,7 +82,8 @@ Page({
             const { searchKeyword, selectedCategory, page, size } = this.data;
             const params = {
                 page,
-                size
+                size,
+                status: 1
             };
             if (searchKeyword) {
                 params.name = searchKeyword;
@@ -91,10 +110,9 @@ Page({
                 total = res.total || 0;
             }
 
-            const mappedList = list.map(item => {
-                // Simple adaptation if necessary
-                return item;
-            });
+            const mappedList = list
+                .filter(item => this.isProductOnline(item))
+                .map(item => item);
 
             if (reset) {
                 this.setData({ products: mappedList, total: total });

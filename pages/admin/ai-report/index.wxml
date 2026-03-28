@@ -1,0 +1,25 @@
+<view class="page">
+  <view class="header card">
+    <view class="title">AI 智能日报汇编</view>
+    <view class="actions">
+      <button class="btn btn-primary action-btn" bindtap="handleGenerate" loading="{{generating}}" disabled="{{generating}}">
+        手动生成报告
+      </button>
+      <button class="btn action-btn" bindtap="refreshList" loading="{{loading}}" disabled="{{loading}}">刷新列表</button>
+    </view>
+  </view>
+
+  <view class="list">
+    <block wx:for="{{list}}" wx:key="id">
+      <view class="report-card card" bindtap="goDetail" data-id="{{item.id}}">
+        <view class="report-time">{{item.created_at_text}}</view>
+        <view class="report-summary">{{item.report_summary || '暂无摘要'}}</view>
+        <view class="detail-link">查看详情 ></view>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{loading}}" class="state-tip">加载中...</view>
+  <view wx:if="{{!loading && list.length === 0}}" class="state-tip">暂无AI报表</view>
+  <view wx:if="{{!loading && list.length > 0 && list.length >= total}}" class="state-tip">没有更多了</view>
+</view>

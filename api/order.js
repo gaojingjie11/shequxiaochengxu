@@ -60,7 +60,8 @@ module.exports = {
             method: 'POST',
             data: {
                 business_id: data.order_id,
-                pay_type: 1
+                pay_type: 1,
+                password: data.password || ''
             }
         });
     },

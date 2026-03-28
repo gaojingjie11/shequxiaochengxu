@@ -10,13 +10,17 @@
     "pages/service/visitor",
     "pages/service/parking",
     "pages/service/property",
+    "pages/service/green-points",
+    "pages/chat/index",
     "pages/order/list",
     "pages/order/detail",
     "pages/order/create",
     "pages/user/index",
     "pages/auth/login",
     "pages/auth/register",
-    "pages/user/favorites"
+    "pages/user/favorites",
+    "pages/admin/ai-report/index",
+    "pages/admin/ai-report/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

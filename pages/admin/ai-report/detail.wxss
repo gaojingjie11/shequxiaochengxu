@@ -1,0 +1,54 @@
+.page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 16px;
+}
+
+.meta {
+  margin-bottom: 12px;
+}
+
+.meta-row {
+  display: flex;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 14px;
+}
+
+.meta-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  width: 96px;
+  color: #666;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.report-rich {
+  display: block;
+}
+
+.fallback-wrap {
+  margin-top: 10px;
+}
+
+.report-text {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.state-tip {
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+  padding: 20px 0;
+}

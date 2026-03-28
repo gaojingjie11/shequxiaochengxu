@@ -1,0 +1,2254 @@
+﻿{
+    "openapi":  "3.0.3",
+    "info":  {
+                 "title":  "Smart Community API",
+                 "version":  "2026-03-28",
+                 "description":  "Auto-generated from smartcomunity/internal/router/router.go"
+             },
+    "servers":  [
+                    {
+                        "url":  "http://42.193.104.173:8082/api",
+                        "description":  "Backend Direct API"
+                    }
+                ],
+    "components":  {
+                       "securitySchemes":  {
+                                               "bearerAuth":  {
+                                                                  "type":  "http",
+                                                                  "scheme":  "bearer",
+                                                                  "bearerFormat":  "JWT"
+                                                              }
+                                           }
+                   },
+    "paths":  {
+                  "/v1/admin/ai-report":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Admin"
+                                                                   ],
+                                                          "summary":  "GET /v1/admin/ai-report",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                          },
+                  "/v1/admin/ai-report/{id}":  {
+                                                   "get":  {
+                                                               "tags":  [
+                                                                            "Admin"
+                                                                        ],
+                                                               "summary":  "GET /v1/admin/ai-report/{id}",
+                                                               "responses":  {
+                                                                                 "200":  {
+                                                                                             "description":  "OK"
+                                                                                         }
+                                                                             },
+                                                               "parameters":  [
+                                                                                  {
+                                                                                      "name":  "id",
+                                                                                      "in":  "path",
+                                                                                      "required":  true,
+                                                                                      "schema":  {
+                                                                                                     "type":  "string"
+                                                                                                 }
+                                                                                  }
+                                                                              ],
+                                                               "security":  [
+                                                                                {
+                                                                                    "bearerAuth":  [
+
+                                                                                                   ]
+                                                                                }
+                                                                            ]
+                                                           }
+                                               },
+                  "/v1/admin/ai-report/generate":  {
+                                                       "post":  {
+                                                                    "tags":  [
+                                                                                 "Admin"
+                                                                             ],
+                                                                    "summary":  "POST /v1/admin/ai-report/generate",
+                                                                    "responses":  {
+                                                                                      "200":  {
+                                                                                                  "description":  "OK"
+                                                                                              }
+                                                                                  },
+                                                                    "requestBody":  {
+                                                                                        "required":  false,
+                                                                                        "content":  {
+                                                                                                        "application/json":  {
+                                                                                                                                 "schema":  {
+                                                                                                                                                "type":  "object"
+                                                                                                                                            }
+                                                                                                                             }
+                                                                                                    }
+                                                                                    },
+                                                                    "security":  [
+                                                                                     {
+                                                                                         "bearerAuth":  [
+
+                                                                                                        ]
+                                                                                     }
+                                                                                 ]
+                                                                }
+                                                   },
+                  "/v1/admin/ai-report/list":  {
+                                                   "get":  {
+                                                               "tags":  [
+                                                                            "Admin"
+                                                                        ],
+                                                               "summary":  "GET /v1/admin/ai-report/list",
+                                                               "responses":  {
+                                                                                 "200":  {
+                                                                                             "description":  "OK"
+                                                                                         }
+                                                                             },
+                                                               "security":  [
+                                                                                {
+                                                                                    "bearerAuth":  [
+
+                                                                                                   ]
+                                                                                }
+                                                                            ]
+                                                           }
+                                               },
+                  "/v1/admin/menu/create":  {
+                                                "post":  {
+                                                             "tags":  [
+                                                                          "Admin"
+                                                                      ],
+                                                             "summary":  "POST /v1/admin/menu/create",
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           },
+                                                             "requestBody":  {
+                                                                                 "required":  false,
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "type":  "object"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             },
+                                                             "security":  [
+                                                                              {
+                                                                                  "bearerAuth":  [
+
+                                                                                                 ]
+                                                                              }
+                                                                          ]
+                                                         }
+                                            },
+                  "/v1/admin/menu/list":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Admin"
+                                                                   ],
+                                                          "summary":  "GET /v1/admin/menu/list",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                          },
+                  "/v1/admin/role/bind_menu":  {
+                                                   "post":  {
+                                                                "tags":  [
+                                                                             "Admin"
+                                                                         ],
+                                                                "summary":  "POST /v1/admin/role/bind_menu",
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              },
+                                                                "requestBody":  {
+                                                                                    "required":  false,
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+                                                                                                                                            "type":  "object"
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                },
+                                                                "security":  [
+                                                                                 {
+                                                                                     "bearerAuth":  [
+
+                                                                                                    ]
+                                                                                 }
+                                                                             ]
+                                                            }
+                                               },
+                  "/v1/admin/role/create":  {
+                                                "post":  {
+                                                             "tags":  [
+                                                                          "Admin"
+                                                                      ],
+                                                             "summary":  "POST /v1/admin/role/create",
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           },
+                                                             "requestBody":  {
+                                                                                 "required":  false,
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "type":  "object"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             },
+                                                             "security":  [
+                                                                              {
+                                                                                  "bearerAuth":  [
+
+                                                                                                 ]
+                                                                              }
+                                                                          ]
+                                                         }
+                                            },
+                  "/v1/admin/role/list":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Admin"
+                                                                   ],
+                                                          "summary":  "GET /v1/admin/role/list",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                          },
+                  "/v1/admin/user/assign_role":  {
+                                                     "post":  {
+                                                                  "tags":  [
+                                                                               "Admin"
+                                                                           ],
+                                                                  "summary":  "POST /v1/admin/user/assign_role",
+                                                                  "responses":  {
+                                                                                    "200":  {
+                                                                                                "description":  "OK"
+                                                                                            }
+                                                                                },
+                                                                  "requestBody":  {
+                                                                                      "required":  false,
+                                                                                      "content":  {
+                                                                                                      "application/json":  {
+                                                                                                                               "schema":  {
+                                                                                                                                              "type":  "object"
+                                                                                                                                          }
+                                                                                                                           }
+                                                                                                  }
+                                                                                  },
+                                                                  "security":  [
+                                                                                   {
+                                                                                       "bearerAuth":  [
+
+                                                                                                      ]
+                                                                                   }
+                                                                               ]
+                                                              }
+                                                 },
+                  "/v1/admin/user/freeze":  {
+                                                "post":  {
+                                                             "tags":  [
+                                                                          "Admin"
+                                                                      ],
+                                                             "summary":  "POST /v1/admin/user/freeze",
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           },
+                                                             "requestBody":  {
+                                                                                 "required":  false,
+                                                                                 "content":  {
+                                                                                                 "application/json":  {
+                                                                                                                          "schema":  {
+                                                                                                                                         "type":  "object"
+                                                                                                                                     }
+                                                                                                                      }
+                                                                                             }
+                                                                             },
+                                                             "security":  [
+                                                                              {
+                                                                                  "bearerAuth":  [
+
+                                                                                                 ]
+                                                                              }
+                                                                          ]
+                                                         }
+                                            },
+                  "/v1/admin/user/list":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Admin"
+                                                                   ],
+                                                          "summary":  "GET /v1/admin/user/list",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                          },
+                  "/v1/admin/user/update_balance":  {
+                                                        "post":  {
+                                                                     "tags":  [
+                                                                                  "Admin"
+                                                                              ],
+                                                                     "summary":  "POST /v1/admin/user/update_balance",
+                                                                     "responses":  {
+                                                                                       "200":  {
+                                                                                                   "description":  "OK"
+                                                                                               }
+                                                                                   },
+                                                                     "requestBody":  {
+                                                                                         "required":  false,
+                                                                                         "content":  {
+                                                                                                         "application/json":  {
+                                                                                                                                  "schema":  {
+                                                                                                                                                 "type":  "object"
+                                                                                                                                             }
+                                                                                                                              }
+                                                                                                     }
+                                                                                     },
+                                                                     "security":  [
+                                                                                      {
+                                                                                          "bearerAuth":  [
+
+                                                                                                         ]
+                                                                                      }
+                                                                                  ]
+                                                                 }
+                                                    },
+                  "/v1/cart":  {
+                                   "post":  {
+                                                "tags":  [
+                                                             "Cart"
+                                                         ],
+                                                "summary":  "POST /v1/cart",
+                                                "responses":  {
+                                                                  "200":  {
+                                                                              "description":  "OK"
+                                                                          }
+                                                              },
+                                                "requestBody":  {
+                                                                    "required":  false,
+                                                                    "content":  {
+                                                                                    "application/json":  {
+                                                                                                             "schema":  {
+                                                                                                                            "type":  "object"
+                                                                                                                        }
+                                                                                                         }
+                                                                                }
+                                                                }
+                                            }
+                               },
+                  "/v1/cart/{id}":  {
+                                        "delete":  {
+                                                       "tags":  [
+                                                                    "Cart"
+                                                                ],
+                                                       "summary":  "DELETE /v1/cart/{id}",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "parameters":  [
+                                                                          {
+                                                                              "name":  "id",
+                                                                              "in":  "path",
+                                                                              "required":  true,
+                                                                              "schema":  {
+                                                                                             "type":  "string"
+                                                                                         }
+                                                                          }
+                                                                      ],
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   },
+                                        "post":  {
+                                                     "tags":  [
+                                                                  "Cart"
+                                                              ],
+                                                     "summary":  "POST /v1/cart/{id}",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "parameters":  [
+                                                                        {
+                                                                            "name":  "id",
+                                                                            "in":  "path",
+                                                                            "required":  true,
+                                                                            "schema":  {
+                                                                                           "type":  "string"
+                                                                                       }
+                                                                        }
+                                                                    ],
+                                                     "requestBody":  {
+                                                                         "required":  false,
+                                                                         "content":  {
+                                                                                         "application/json":  {
+                                                                                                                  "schema":  {
+                                                                                                                                 "type":  "object"
+                                                                                                                             }
+                                                                                                              }
+                                                                                     }
+                                                                     },
+                                                     "security":  [
+                                                                      {
+                                                                          "bearerAuth":  [
+
+                                                                                         ]
+                                                                      }
+                                                                  ]
+                                                 }
+                                    },
+                  "/v1/cart/add":  {
+                                       "post":  {
+                                                    "tags":  [
+                                                                 "Cart"
+                                                             ],
+                                                    "summary":  "POST /v1/cart/add",
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK"
+                                                                              }
+                                                                  },
+                                                    "requestBody":  {
+                                                                        "required":  false,
+                                                                        "content":  {
+                                                                                        "application/json":  {
+                                                                                                                 "schema":  {
+                                                                                                                                "type":  "object"
+                                                                                                                            }
+                                                                                                             }
+                                                                                    }
+                                                                    },
+                                                    "security":  [
+                                                                     {
+                                                                         "bearerAuth":  [
+
+                                                                                        ]
+                                                                     }
+                                                                 ]
+                                                }
+                                   },
+                  "/v1/cart/list":  {
+                                        "get":  {
+                                                    "tags":  [
+                                                                 "Cart"
+                                                             ],
+                                                    "summary":  "GET /v1/cart/list",
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK"
+                                                                              }
+                                                                  },
+                                                    "security":  [
+                                                                     {
+                                                                         "bearerAuth":  [
+
+                                                                                        ]
+                                                                     }
+                                                                 ]
+                                                }
+                                    },
+                  "/v1/categories":  {
+                                         "get":  {
+                                                     "tags":  [
+                                                                  "Product"
+                                                              ],
+                                                     "summary":  "GET /v1/categories",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   }
+                                                 }
+                                     },
+                  "/v1/chat/history":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Chat"
+                                                                ],
+                                                       "summary":  "GET /v1/chat/history",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                       },
+                  "/v1/chat/send":  {
+                                        "post":  {
+                                                     "tags":  [
+                                                                  "Chat"
+                                                              ],
+                                                     "summary":  "POST /v1/chat/send",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "requestBody":  {
+                                                                         "required":  false,
+                                                                         "content":  {
+                                                                                         "application/json":  {
+                                                                                                                  "schema":  {
+                                                                                                                                 "type":  "object"
+                                                                                                                             }
+                                                                                                              }
+                                                                                     }
+                                                                     },
+                                                     "security":  [
+                                                                      {
+                                                                          "bearerAuth":  [
+
+                                                                                         ]
+                                                                      }
+                                                                  ]
+                                                 }
+                                    },
+                  "/v1/comment/create":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Comment"
+                                                                   ],
+                                                          "summary":  "POST /v1/comment/create",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "requestBody":  {
+                                                                              "required":  false,
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "object"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                         },
+                  "/v1/comments":  {
+                                       "get":  {
+                                                   "tags":  [
+                                                                "Comment"
+                                                            ],
+                                                   "summary":  "GET /v1/comments",
+                                                   "responses":  {
+                                                                     "200":  {
+                                                                                 "description":  "OK"
+                                                                             }
+                                                                 }
+                                               }
+                                   },
+                  "/v1/dashboard/stats":  {
+                                              "get":  {
+                                                          "tags":  [
+                                                                       "Misc"
+                                                                   ],
+                                                          "summary":  "GET /v1/dashboard/stats",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        }
+                                                      }
+                                          },
+                  "/v1/favorite/add":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Favorite"
+                                                                 ],
+                                                        "summary":  "POST /v1/favorite/add",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/favorite/check":  {
+                                             "get":  {
+                                                         "tags":  [
+                                                                      "Favorite"
+                                                                  ],
+                                                         "summary":  "GET /v1/favorite/check",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                         },
+                  "/v1/favorite/delete":  {
+                                              "post":  {
+                                                           "tags":  [
+                                                                        "Favorite"
+                                                                    ],
+                                                           "summary":  "POST /v1/favorite/delete",
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "OK"
+                                                                                     }
+                                                                         },
+                                                           "requestBody":  {
+                                                                               "required":  false,
+                                                                               "content":  {
+                                                                                               "application/json":  {
+                                                                                                                        "schema":  {
+                                                                                                                                       "type":  "object"
+                                                                                                                                   }
+                                                                                                                    }
+                                                                                           }
+                                                                           },
+                                                           "security":  [
+                                                                            {
+                                                                                "bearerAuth":  [
+
+                                                                                               ]
+                                                                            }
+                                                                        ]
+                                                       }
+                                          },
+                  "/v1/favorites":  {
+                                        "get":  {
+                                                    "tags":  [
+                                                                 "Favorite"
+                                                             ],
+                                                    "summary":  "GET /v1/favorites",
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK"
+                                                                              }
+                                                                  },
+                                                    "security":  [
+                                                                     {
+                                                                         "bearerAuth":  [
+
+                                                                                        ]
+                                                                     }
+                                                                 ]
+                                                }
+                                    },
+                  "/v1/finance/pay":  {
+                                          "post":  {
+                                                       "tags":  [
+                                                                    "Finance"
+                                                                ],
+                                                       "summary":  "POST /v1/finance/pay",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "requestBody":  {
+                                                                           "required":  false,
+                                                                           "content":  {
+                                                                                           "application/json":  {
+                                                                                                                    "schema":  {
+                                                                                                                                   "type":  "object"
+                                                                                                                               }
+                                                                                                                }
+                                                                                       }
+                                                                       },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                      },
+                  "/v1/finance/recharge":  {
+                                               "post":  {
+                                                            "tags":  [
+                                                                         "Finance"
+                                                                     ],
+                                                            "summary":  "POST /v1/finance/recharge",
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          },
+                                                            "requestBody":  {
+                                                                                "required":  false,
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "type":  "object"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                            "security":  [
+                                                                             {
+                                                                                 "bearerAuth":  [
+
+                                                                                                ]
+                                                                             }
+                                                                         ]
+                                                        }
+                                           },
+                  "/v1/finance/transactions":  {
+                                                   "get":  {
+                                                               "tags":  [
+                                                                            "Finance"
+                                                                        ],
+                                                               "summary":  "GET /v1/finance/transactions",
+                                                               "responses":  {
+                                                                                 "200":  {
+                                                                                             "description":  "OK"
+                                                                                         }
+                                                                             },
+                                                               "security":  [
+                                                                                {
+                                                                                    "bearerAuth":  [
+
+                                                                                                   ]
+                                                                                }
+                                                                            ]
+                                                           }
+                                               },
+                  "/v1/finance/transfer":  {
+                                               "post":  {
+                                                            "tags":  [
+                                                                         "Finance"
+                                                                     ],
+                                                            "summary":  "POST /v1/finance/transfer",
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          },
+                                                            "requestBody":  {
+                                                                                "required":  false,
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "type":  "object"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                            "security":  [
+                                                                             {
+                                                                                 "bearerAuth":  [
+
+                                                                                                ]
+                                                                             }
+                                                                         ]
+                                                        }
+                                           },
+                  "/v1/forget_password":  {
+                                              "post":  {
+                                                           "tags":  [
+                                                                        "Auth"
+                                                                    ],
+                                                           "summary":  "POST /v1/forget_password",
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "OK"
+                                                                                     }
+                                                                         },
+                                                           "requestBody":  {
+                                                                               "required":  false,
+                                                                               "content":  {
+                                                                                               "application/json":  {
+                                                                                                                        "schema":  {
+                                                                                                                                       "type":  "object"
+                                                                                                                                   }
+                                                                                                                    }
+                                                                                           }
+                                                                           }
+                                                       }
+                                          },
+                  "/v1/green-points/leaderboard":  {
+                                                       "get":  {
+                                                                   "tags":  [
+                                                                                "GreenPoints"
+                                                                            ],
+                                                                   "summary":  "GET /v1/green-points/leaderboard",
+                                                                   "responses":  {
+                                                                                     "200":  {
+                                                                                                 "description":  "OK"
+                                                                                             }
+                                                                                 }
+                                                               }
+                                                   },
+                  "/v1/green-points/upload-garbage":  {
+                                                          "post":  {
+                                                                       "tags":  [
+                                                                                    "GreenPoints"
+                                                                                ],
+                                                                       "summary":  "POST /v1/green-points/upload-garbage",
+                                                                       "responses":  {
+                                                                                         "200":  {
+                                                                                                     "description":  "OK"
+                                                                                                 }
+                                                                                     },
+                                                                       "requestBody":  {
+                                                                                           "required":  false,
+                                                                                           "content":  {
+                                                                                                           "application/json":  {
+                                                                                                                                    "schema":  {
+                                                                                                                                                   "type":  "object"
+                                                                                                                                               }
+                                                                                                                                }
+                                                                                                       }
+                                                                                       },
+                                                                       "security":  [
+                                                                                        {
+                                                                                            "bearerAuth":  [
+
+                                                                                                           ]
+                                                                                        }
+                                                                                    ]
+                                                                   }
+                                                      },
+                  "/v1/login":  {
+                                    "post":  {
+                                                 "tags":  [
+                                                              "Auth"
+                                                          ],
+                                                 "summary":  "POST /v1/login",
+                                                 "responses":  {
+                                                                   "200":  {
+                                                                               "description":  "OK"
+                                                                           }
+                                                               },
+                                                 "requestBody":  {
+                                                                     "required":  false,
+                                                                     "content":  {
+                                                                                     "application/json":  {
+                                                                                                              "schema":  {
+                                                                                                                             "type":  "object"
+                                                                                                                         }
+                                                                                                          }
+                                                                                 }
+                                                                 }
+                                             }
+                                },
+                  "/v1/login_code":  {
+                                         "post":  {
+                                                      "tags":  [
+                                                                   "Auth"
+                                                               ],
+                                                      "summary":  "POST /v1/login_code",
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    },
+                                                      "requestBody":  {
+                                                                          "required":  false,
+                                                                          "content":  {
+                                                                                          "application/json":  {
+                                                                                                                   "schema":  {
+                                                                                                                                  "type":  "object"
+                                                                                                                              }
+                                                                                                               }
+                                                                                      }
+                                                                      }
+                                                  }
+                                     },
+                  "/v1/logout":  {
+                                     "post":  {
+                                                  "tags":  [
+                                                               "Auth"
+                                                           ],
+                                                  "summary":  "POST /v1/logout",
+                                                  "responses":  {
+                                                                    "200":  {
+                                                                                "description":  "OK"
+                                                                            }
+                                                                },
+                                                  "requestBody":  {
+                                                                      "required":  false,
+                                                                      "content":  {
+                                                                                      "application/json":  {
+                                                                                                               "schema":  {
+                                                                                                                              "type":  "object"
+                                                                                                                          }
+                                                                                                           }
+                                                                                  }
+                                                                  },
+                                                  "security":  [
+                                                                   {
+                                                                       "bearerAuth":  [
+
+                                                                                      ]
+                                                                   }
+                                                               ]
+                                              }
+                                 },
+                  "/v1/marketing/promotion/{id}":  {
+                                                       "delete":  {
+                                                                      "tags":  [
+                                                                                   "Marketing"
+                                                                               ],
+                                                                      "summary":  "DELETE /v1/marketing/promotion/{id}",
+                                                                      "responses":  {
+                                                                                        "200":  {
+                                                                                                    "description":  "OK"
+                                                                                                }
+                                                                                    },
+                                                                      "parameters":  [
+                                                                                         {
+                                                                                             "name":  "id",
+                                                                                             "in":  "path",
+                                                                                             "required":  true,
+                                                                                             "schema":  {
+                                                                                                            "type":  "string"
+                                                                                                        }
+                                                                                         }
+                                                                                     ],
+                                                                      "security":  [
+                                                                                       {
+                                                                                           "bearerAuth":  [
+
+                                                                                                          ]
+                                                                                       }
+                                                                                   ]
+                                                                  }
+                                                   },
+                  "/v1/marketing/promotion/create":  {
+                                                         "post":  {
+                                                                      "tags":  [
+                                                                                   "Marketing"
+                                                                               ],
+                                                                      "summary":  "POST /v1/marketing/promotion/create",
+                                                                      "responses":  {
+                                                                                        "200":  {
+                                                                                                    "description":  "OK"
+                                                                                                }
+                                                                                    },
+                                                                      "requestBody":  {
+                                                                                          "required":  false,
+                                                                                          "content":  {
+                                                                                                          "application/json":  {
+                                                                                                                                   "schema":  {
+                                                                                                                                                  "type":  "object"
+                                                                                                                                              }
+                                                                                                                               }
+                                                                                                      }
+                                                                                      },
+                                                                      "security":  [
+                                                                                       {
+                                                                                           "bearerAuth":  [
+
+                                                                                                          ]
+                                                                                       }
+                                                                                   ]
+                                                                  }
+                                                     },
+                  "/v1/marketing/promotion/list":  {
+                                                       "get":  {
+                                                                   "tags":  [
+                                                                                "Marketing"
+                                                                            ],
+                                                                   "summary":  "GET /v1/marketing/promotion/list",
+                                                                   "responses":  {
+                                                                                     "200":  {
+                                                                                                 "description":  "OK"
+                                                                                             }
+                                                                                 },
+                                                                   "security":  [
+                                                                                    {
+                                                                                        "bearerAuth":  [
+
+                                                                                                       ]
+                                                                                    }
+                                                                                ]
+                                                               }
+                                                   },
+                  "/v1/notice/{id}":  {
+                                          "get":  {
+                                                      "tags":  [
+                                                                   "Notice"
+                                                               ],
+                                                      "summary":  "GET /v1/notice/{id}",
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    },
+                                                      "parameters":  [
+                                                                         {
+                                                                             "name":  "id",
+                                                                             "in":  "path",
+                                                                             "required":  true,
+                                                                             "schema":  {
+                                                                                            "type":  "string"
+                                                                                        }
+                                                                         }
+                                                                     ]
+                                                  },
+                                          "delete":  {
+                                                         "tags":  [
+                                                                      "Notice"
+                                                                  ],
+                                                         "summary":  "DELETE /v1/notice/{id}",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "parameters":  [
+                                                                            {
+                                                                                "name":  "id",
+                                                                                "in":  "path",
+                                                                                "required":  true,
+                                                                                "schema":  {
+                                                                                               "type":  "string"
+                                                                                           }
+                                                                            }
+                                                                        ],
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                      },
+                  "/v1/notice/create":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "Notice"
+                                                                  ],
+                                                         "summary":  "POST /v1/notice/create",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "requestBody":  {
+                                                                             "required":  false,
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "type":  "object"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                        },
+                  "/v1/notice/read/{id}":  {
+                                               "post":  {
+                                                            "tags":  [
+                                                                         "Notice"
+                                                                     ],
+                                                            "summary":  "POST /v1/notice/read/{id}",
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          },
+                                                            "parameters":  [
+                                                                               {
+                                                                                   "name":  "id",
+                                                                                   "in":  "path",
+                                                                                   "required":  true,
+                                                                                   "schema":  {
+                                                                                                  "type":  "string"
+                                                                                              }
+                                                                               }
+                                                                           ],
+                                                            "requestBody":  {
+                                                                                "required":  false,
+                                                                                "content":  {
+                                                                                                "application/json":  {
+                                                                                                                         "schema":  {
+                                                                                                                                        "type":  "object"
+                                                                                                                                    }
+                                                                                                                     }
+                                                                                            }
+                                                                            },
+                                                            "security":  [
+                                                                             {
+                                                                                 "bearerAuth":  [
+
+                                                                                                ]
+                                                                             }
+                                                                         ]
+                                                        }
+                                           },
+                  "/v1/notices":  {
+                                      "get":  {
+                                                  "tags":  [
+                                                               "Notice"
+                                                           ],
+                                                  "summary":  "GET /v1/notices",
+                                                  "responses":  {
+                                                                    "200":  {
+                                                                                "description":  "OK"
+                                                                            }
+                                                                }
+                                              }
+                                  },
+                  "/v1/order/admin/list":  {
+                                               "get":  {
+                                                           "tags":  [
+                                                                        "Order"
+                                                                    ],
+                                                           "summary":  "GET /v1/order/admin/list",
+                                                           "responses":  {
+                                                                             "200":  {
+                                                                                         "description":  "OK"
+                                                                                     }
+                                                                         },
+                                                           "security":  [
+                                                                            {
+                                                                                "bearerAuth":  [
+
+                                                                                               ]
+                                                                            }
+                                                                        ]
+                                                       }
+                                           },
+                  "/v1/order/cancel":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Order"
+                                                                 ],
+                                                        "summary":  "POST /v1/order/cancel",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/order/create":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Order"
+                                                                 ],
+                                                        "summary":  "POST /v1/order/create",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/order/detail":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Order"
+                                                                ],
+                                                       "summary":  "GET /v1/order/detail",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                       },
+                  "/v1/order/list":  {
+                                         "get":  {
+                                                     "tags":  [
+                                                                  "Order"
+                                                              ],
+                                                     "summary":  "GET /v1/order/list",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "security":  [
+                                                                      {
+                                                                          "bearerAuth":  [
+
+                                                                                         ]
+                                                                      }
+                                                                  ]
+                                                 }
+                                     },
+                  "/v1/order/pay":  {
+                                        "post":  {
+                                                     "tags":  [
+                                                                  "Order"
+                                                              ],
+                                                     "summary":  "POST /v1/order/pay",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "requestBody":  {
+                                                                         "required":  false,
+                                                                         "content":  {
+                                                                                         "application/json":  {
+                                                                                                                  "schema":  {
+                                                                                                                                 "type":  "object"
+                                                                                                                             }
+                                                                                                              }
+                                                                                     }
+                                                                     },
+                                                     "security":  [
+                                                                      {
+                                                                          "bearerAuth":  [
+
+                                                                                         ]
+                                                                      }
+                                                                  ]
+                                                 }
+                                    },
+                  "/v1/order/receive":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "Order"
+                                                                  ],
+                                                         "summary":  "POST /v1/order/receive",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "requestBody":  {
+                                                                             "required":  false,
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "type":  "object"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                        },
+                  "/v1/order/ship":  {
+                                         "post":  {
+                                                      "tags":  [
+                                                                   "Order"
+                                                               ],
+                                                      "summary":  "POST /v1/order/ship",
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    },
+                                                      "requestBody":  {
+                                                                          "required":  false,
+                                                                          "content":  {
+                                                                                          "application/json":  {
+                                                                                                                   "schema":  {
+                                                                                                                                  "type":  "object"
+                                                                                                                              }
+                                                                                                               }
+                                                                                      }
+                                                                      },
+                                                      "security":  [
+                                                                       {
+                                                                           "bearerAuth":  [
+
+                                                                                          ]
+                                                                       }
+                                                                   ]
+                                                  }
+                                     },
+                  "/v1/parking/admin/assign":  {
+                                                   "post":  {
+                                                                "tags":  [
+                                                                             "Security"
+                                                                         ],
+                                                                "summary":  "POST /v1/parking/admin/assign",
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              },
+                                                                "requestBody":  {
+                                                                                    "required":  false,
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+                                                                                                                                            "type":  "object"
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                },
+                                                                "security":  [
+                                                                                 {
+                                                                                     "bearerAuth":  [
+
+                                                                                                    ]
+                                                                                 }
+                                                                             ]
+                                                            }
+                                               },
+                  "/v1/parking/admin/create":  {
+                                                   "post":  {
+                                                                "tags":  [
+                                                                             "Security"
+                                                                         ],
+                                                                "summary":  "POST /v1/parking/admin/create",
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              },
+                                                                "requestBody":  {
+                                                                                    "required":  false,
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+                                                                                                                                            "type":  "object"
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                },
+                                                                "security":  [
+                                                                                 {
+                                                                                     "bearerAuth":  [
+
+                                                                                                    ]
+                                                                                 }
+                                                                             ]
+                                                            }
+                                               },
+                  "/v1/parking/admin/list":  {
+                                                 "get":  {
+                                                             "tags":  [
+                                                                          "Security"
+                                                                      ],
+                                                             "summary":  "GET /v1/parking/admin/list",
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           },
+                                                             "security":  [
+                                                                              {
+                                                                                  "bearerAuth":  [
+
+                                                                                                 ]
+                                                                              }
+                                                                          ]
+                                                         }
+                                             },
+                  "/v1/parking/admin/stats":  {
+                                                  "get":  {
+                                                              "tags":  [
+                                                                           "Security"
+                                                                       ],
+                                                              "summary":  "GET /v1/parking/admin/stats",
+                                                              "responses":  {
+                                                                                "200":  {
+                                                                                            "description":  "OK"
+                                                                                        }
+                                                                            },
+                                                              "security":  [
+                                                                               {
+                                                                                   "bearerAuth":  [
+
+                                                                                                  ]
+                                                                               }
+                                                                           ]
+                                                          }
+                                              },
+                  "/v1/parking/bind":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Security"
+                                                                 ],
+                                                        "summary":  "POST /v1/parking/bind",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/parking/my":  {
+                                         "get":  {
+                                                     "tags":  [
+                                                                  "Security"
+                                                              ],
+                                                     "summary":  "GET /v1/parking/my",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "security":  [
+                                                                      {
+                                                                          "bearerAuth":  [
+
+                                                                                         ]
+                                                                      }
+                                                                  ]
+                                                 }
+                                     },
+                  "/v1/product/{id}":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Product"
+                                                                ],
+                                                       "summary":  "GET /v1/product/{id}",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "parameters":  [
+                                                                          {
+                                                                              "name":  "id",
+                                                                              "in":  "path",
+                                                                              "required":  true,
+                                                                              "schema":  {
+                                                                                             "type":  "string"
+                                                                                         }
+                                                                          }
+                                                                      ]
+                                                   },
+                                           "delete":  {
+                                                          "tags":  [
+                                                                       "Product"
+                                                                   ],
+                                                          "summary":  "DELETE /v1/product/{id}",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "parameters":  [
+                                                                             {
+                                                                                 "name":  "id",
+                                                                                 "in":  "path",
+                                                                                 "required":  true,
+                                                                                 "schema":  {
+                                                                                                "type":  "string"
+                                                                                            }
+                                                                             }
+                                                                         ],
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                       },
+                  "/v1/product/create":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Product"
+                                                                   ],
+                                                          "summary":  "POST /v1/product/create",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "requestBody":  {
+                                                                              "required":  false,
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "object"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                         },
+                  "/v1/product/rank":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Product"
+                                                                ],
+                                                       "summary":  "GET /v1/product/rank",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                       },
+                  "/v1/product/update":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Product"
+                                                                   ],
+                                                          "summary":  "POST /v1/product/update",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "requestBody":  {
+                                                                              "required":  false,
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "object"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                         },
+                  "/v1/products":  {
+                                       "get":  {
+                                                   "tags":  [
+                                                                "Product"
+                                                            ],
+                                                   "summary":  "GET /v1/products",
+                                                   "responses":  {
+                                                                     "200":  {
+                                                                                 "description":  "OK"
+                                                                             }
+                                                                 }
+                                               }
+                                   },
+                  "/v1/property/admin/create":  {
+                                                    "post":  {
+                                                                 "tags":  [
+                                                                              "Finance"
+                                                                          ],
+                                                                 "summary":  "POST /v1/property/admin/create",
+                                                                 "responses":  {
+                                                                                   "200":  {
+                                                                                               "description":  "OK"
+                                                                                           }
+                                                                               },
+                                                                 "requestBody":  {
+                                                                                     "required":  false,
+                                                                                     "content":  {
+                                                                                                     "application/json":  {
+                                                                                                                              "schema":  {
+                                                                                                                                             "type":  "object"
+                                                                                                                                         }
+                                                                                                                          }
+                                                                                                 }
+                                                                                 },
+                                                                 "security":  [
+                                                                                  {
+                                                                                      "bearerAuth":  [
+
+                                                                                                     ]
+                                                                                  }
+                                                                              ]
+                                                             }
+                                                },
+                  "/v1/property/admin/list":  {
+                                                  "get":  {
+                                                              "tags":  [
+                                                                           "Finance"
+                                                                       ],
+                                                              "summary":  "GET /v1/property/admin/list",
+                                                              "responses":  {
+                                                                                "200":  {
+                                                                                            "description":  "OK"
+                                                                                        }
+                                                                            },
+                                                              "security":  [
+                                                                               {
+                                                                                   "bearerAuth":  [
+
+                                                                                                  ]
+                                                                               }
+                                                                           ]
+                                                          }
+                                              },
+                  "/v1/property/list":  {
+                                            "get":  {
+                                                        "tags":  [
+                                                                     "Finance"
+                                                                 ],
+                                                        "summary":  "GET /v1/property/list",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                        },
+                  "/v1/register":  {
+                                       "post":  {
+                                                    "tags":  [
+                                                                 "Auth"
+                                                             ],
+                                                    "summary":  "POST /v1/register",
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK"
+                                                                              }
+                                                                  },
+                                                    "requestBody":  {
+                                                                        "required":  false,
+                                                                        "content":  {
+                                                                                        "application/json":  {
+                                                                                                                 "schema":  {
+                                                                                                                                "type":  "object"
+                                                                                                                            }
+                                                                                                             }
+                                                                                    }
+                                                                    }
+                                                }
+                                   },
+                  "/v1/repair/admin/list":  {
+                                                "get":  {
+                                                            "tags":  [
+                                                                         "Repair"
+                                                                     ],
+                                                            "summary":  "GET /v1/repair/admin/list",
+                                                            "responses":  {
+                                                                              "200":  {
+                                                                                          "description":  "OK"
+                                                                                      }
+                                                                          },
+                                                            "security":  [
+                                                                             {
+                                                                                 "bearerAuth":  [
+
+                                                                                                ]
+                                                                             }
+                                                                         ]
+                                                        }
+                                            },
+                  "/v1/repair/create":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "Repair"
+                                                                  ],
+                                                         "summary":  "POST /v1/repair/create",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "requestBody":  {
+                                                                             "required":  false,
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "type":  "object"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                        },
+                  "/v1/repair/list":  {
+                                          "get":  {
+                                                      "tags":  [
+                                                                   "Repair"
+                                                               ],
+                                                      "summary":  "GET /v1/repair/list",
+                                                      "responses":  {
+                                                                        "200":  {
+                                                                                    "description":  "OK"
+                                                                                }
+                                                                    },
+                                                      "security":  [
+                                                                       {
+                                                                           "bearerAuth":  [
+
+                                                                                          ]
+                                                                       }
+                                                                   ]
+                                                  }
+                                      },
+                  "/v1/repair/process":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Repair"
+                                                                   ],
+                                                          "summary":  "POST /v1/repair/process",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "requestBody":  {
+                                                                              "required":  false,
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "object"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                         },
+                  "/v1/send_code":  {
+                                        "post":  {
+                                                     "tags":  [
+                                                                  "Auth"
+                                                              ],
+                                                     "summary":  "POST /v1/send_code",
+                                                     "responses":  {
+                                                                       "200":  {
+                                                                                   "description":  "OK"
+                                                                               }
+                                                                   },
+                                                     "requestBody":  {
+                                                                         "required":  false,
+                                                                         "content":  {
+                                                                                         "application/json":  {
+                                                                                                                  "schema":  {
+                                                                                                                                 "type":  "object"
+                                                                                                                             }
+                                                                                                              }
+                                                                                     }
+                                                                     }
+                                                 }
+                                    },
+                  "/v1/store/{id}":  {
+                                         "delete":  {
+                                                        "tags":  [
+                                                                     "Product"
+                                                                 ],
+                                                        "summary":  "DELETE /v1/store/{id}",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "parameters":  [
+                                                                           {
+                                                                               "name":  "id",
+                                                                               "in":  "path",
+                                                                               "required":  true,
+                                                                               "schema":  {
+                                                                                              "type":  "string"
+                                                                                          }
+                                                                           }
+                                                                       ],
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                     },
+                  "/v1/store/bind_product":  {
+                                                 "post":  {
+                                                              "tags":  [
+                                                                           "Product"
+                                                                       ],
+                                                              "summary":  "POST /v1/store/bind_product",
+                                                              "responses":  {
+                                                                                "200":  {
+                                                                                            "description":  "OK"
+                                                                                        }
+                                                                            },
+                                                              "requestBody":  {
+                                                                                  "required":  false,
+                                                                                  "content":  {
+                                                                                                  "application/json":  {
+                                                                                                                           "schema":  {
+                                                                                                                                          "type":  "object"
+                                                                                                                                      }
+                                                                                                                       }
+                                                                                              }
+                                                                              },
+                                                              "security":  [
+                                                                               {
+                                                                                   "bearerAuth":  [
+
+                                                                                                  ]
+                                                                               }
+                                                                           ]
+                                                          }
+                                             },
+                  "/v1/store/create":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Product"
+                                                                 ],
+                                                        "summary":  "POST /v1/store/create",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/store/update":  {
+                                           "post":  {
+                                                        "tags":  [
+                                                                     "Product"
+                                                                 ],
+                                                        "summary":  "POST /v1/store/update",
+                                                        "responses":  {
+                                                                          "200":  {
+                                                                                      "description":  "OK"
+                                                                                  }
+                                                                      },
+                                                        "requestBody":  {
+                                                                            "required":  false,
+                                                                            "content":  {
+                                                                                            "application/json":  {
+                                                                                                                     "schema":  {
+                                                                                                                                    "type":  "object"
+                                                                                                                                }
+                                                                                                                 }
+                                                                                        }
+                                                                        },
+                                                        "security":  [
+                                                                         {
+                                                                             "bearerAuth":  [
+
+                                                                                            ]
+                                                                         }
+                                                                     ]
+                                                    }
+                                       },
+                  "/v1/stores":  {
+                                     "get":  {
+                                                 "tags":  [
+                                                              "Product"
+                                                          ],
+                                                 "summary":  "GET /v1/stores",
+                                                 "responses":  {
+                                                                   "200":  {
+                                                                               "description":  "OK"
+                                                                           }
+                                                               }
+                                             }
+                                 },
+                  "/v1/upload":  {
+                                     "post":  {
+                                                  "tags":  [
+                                                               "Upload"
+                                                           ],
+                                                  "summary":  "POST /v1/upload",
+                                                  "responses":  {
+                                                                    "200":  {
+                                                                                "description":  "OK"
+                                                                            }
+                                                                },
+                                                  "requestBody":  {
+                                                                      "required":  false,
+                                                                      "content":  {
+                                                                                      "application/json":  {
+                                                                                                               "schema":  {
+                                                                                                                              "type":  "object"
+                                                                                                                          }
+                                                                                                           }
+                                                                                  }
+                                                                  },
+                                                  "security":  [
+                                                                   {
+                                                                       "bearerAuth":  [
+
+                                                                                      ]
+                                                                   }
+                                                               ]
+                                              }
+                                 },
+                  "/v1/user/change_password":  {
+                                                   "post":  {
+                                                                "tags":  [
+                                                                             "Auth"
+                                                                         ],
+                                                                "summary":  "POST /v1/user/change_password",
+                                                                "responses":  {
+                                                                                  "200":  {
+                                                                                              "description":  "OK"
+                                                                                          }
+                                                                              },
+                                                                "requestBody":  {
+                                                                                    "required":  false,
+                                                                                    "content":  {
+                                                                                                    "application/json":  {
+                                                                                                                             "schema":  {
+                                                                                                                                            "type":  "object"
+                                                                                                                                        }
+                                                                                                                         }
+                                                                                                }
+                                                                                },
+                                                                "security":  [
+                                                                                 {
+                                                                                     "bearerAuth":  [
+
+                                                                                                    ]
+                                                                                 }
+                                                                             ]
+                                                            }
+                                               },
+                  "/v1/user/info":  {
+                                        "get":  {
+                                                    "tags":  [
+                                                                 "Auth"
+                                                             ],
+                                                    "summary":  "GET /v1/user/info",
+                                                    "responses":  {
+                                                                      "200":  {
+                                                                                  "description":  "OK"
+                                                                              }
+                                                                  },
+                                                    "security":  [
+                                                                     {
+                                                                         "bearerAuth":  [
+
+                                                                                        ]
+                                                                     }
+                                                                 ]
+                                                }
+                                    },
+                  "/v1/user/update":  {
+                                          "post":  {
+                                                       "tags":  [
+                                                                    "Auth"
+                                                                ],
+                                                       "summary":  "POST /v1/user/update",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "requestBody":  {
+                                                                           "required":  false,
+                                                                           "content":  {
+                                                                                           "application/json":  {
+                                                                                                                    "schema":  {
+                                                                                                                                   "type":  "object"
+                                                                                                                               }
+                                                                                                                }
+                                                                                       }
+                                                                       },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                      },
+                  "/v1/visitor/admin/list":  {
+                                                 "get":  {
+                                                             "tags":  [
+                                                                          "Security"
+                                                                      ],
+                                                             "summary":  "GET /v1/visitor/admin/list",
+                                                             "responses":  {
+                                                                               "200":  {
+                                                                                           "description":  "OK"
+                                                                                       }
+                                                                           },
+                                                             "security":  [
+                                                                              {
+                                                                                  "bearerAuth":  [
+
+                                                                                                 ]
+                                                                              }
+                                                                          ]
+                                                         }
+                                             },
+                  "/v1/visitor/audit":  {
+                                            "post":  {
+                                                         "tags":  [
+                                                                      "Security"
+                                                                  ],
+                                                         "summary":  "POST /v1/visitor/audit",
+                                                         "responses":  {
+                                                                           "200":  {
+                                                                                       "description":  "OK"
+                                                                                   }
+                                                                       },
+                                                         "requestBody":  {
+                                                                             "required":  false,
+                                                                             "content":  {
+                                                                                             "application/json":  {
+                                                                                                                      "schema":  {
+                                                                                                                                     "type":  "object"
+                                                                                                                                 }
+                                                                                                                  }
+                                                                                         }
+                                                                         },
+                                                         "security":  [
+                                                                          {
+                                                                              "bearerAuth":  [
+
+                                                                                             ]
+                                                                          }
+                                                                      ]
+                                                     }
+                                        },
+                  "/v1/visitor/create":  {
+                                             "post":  {
+                                                          "tags":  [
+                                                                       "Security"
+                                                                   ],
+                                                          "summary":  "POST /v1/visitor/create",
+                                                          "responses":  {
+                                                                            "200":  {
+                                                                                        "description":  "OK"
+                                                                                    }
+                                                                        },
+                                                          "requestBody":  {
+                                                                              "required":  false,
+                                                                              "content":  {
+                                                                                              "application/json":  {
+                                                                                                                       "schema":  {
+                                                                                                                                      "type":  "object"
+                                                                                                                                  }
+                                                                                                                   }
+                                                                                          }
+                                                                          },
+                                                          "security":  [
+                                                                           {
+                                                                               "bearerAuth":  [
+
+                                                                                              ]
+                                                                           }
+                                                                       ]
+                                                      }
+                                         },
+                  "/v1/visitor/list":  {
+                                           "get":  {
+                                                       "tags":  [
+                                                                    "Security"
+                                                                ],
+                                                       "summary":  "GET /v1/visitor/list",
+                                                       "responses":  {
+                                                                         "200":  {
+                                                                                     "description":  "OK"
+                                                                                 }
+                                                                     },
+                                                       "security":  [
+                                                                        {
+                                                                            "bearerAuth":  [
+
+                                                                                           ]
+                                                                        }
+                                                                    ]
+                                                   }
+                                       }
+              }
+}

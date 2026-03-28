@@ -11,11 +11,15 @@
           <text class="mobile">{{userInfo.mobile}}</text>
         </view>
       </view>
-      
+
       <view class="stats-row">
         <view class="stat-item">
           <view class="stat-label">余额</view>
-          <view class="stat-val">¥{{userInfo.balance || 0}}</view>
+          <view class="stat-val">￥{{userInfo.balance || 0}}</view>
+        </view>
+        <view class="stat-item">
+          <view class="stat-label">绿色积分</view>
+          <view class="stat-val">{{userInfo.green_points || 0}}</view>
         </view>
         <view class="stat-item">
           <view class="stat-label">状态</view>
@@ -23,7 +27,7 @@
         </view>
       </view>
     </block>
-    
+
     <block wx:else>
       <view class="unlogin-view" bindtap="goToLogin">
         <image class="avatar" src="/assets/icons/user.png"></image>
@@ -34,18 +38,25 @@
 
   <view class="menu-grid">
     <navigator url="/pages/order/list" class="menu-item card">
-      <view class="menu-icon">📦</view>
+      <view class="menu-icon">📝</view>
       <view>我的订单</view>
     </navigator>
+
     <navigator url="/pages/user/favorites" class="menu-item card">
       <view class="menu-icon">❤️</view>
       <view>我的收藏</view>
     </navigator>
+
     <navigator url="/pages/service/index" open-type="switchTab" class="menu-item card">
-      <view class="menu-icon">🏘️</view>
+      <view class="menu-icon">🛠️</view>
       <view>社区服务</view>
     </navigator>
-    
+
+    <navigator wx:if="{{showAIReportEntry}}" url="/pages/admin/ai-report/index" class="menu-item card">
+      <view class="menu-icon">📊</view>
+      <view>AI报表</view>
+    </navigator>
+
     <view class="menu-item card" bindtap="handleLogout" wx:if="{{userInfo}}">
       <view class="menu-icon">🚪</view>
       <view>退出登录</view>

@@ -1,0 +1,39 @@
+<view class="chat-page">
+  <view class="chat-header card">
+    <view class="chat-title">🤖 智慧社区助手</view>
+    <view class="chat-desc">支持通知总结、报修创建、商品下单与支付。</view>
+  </view>
+
+  <view class="chat-card card">
+    <scroll-view class="chat-history" scroll-y="true" scroll-into-view="{{lastMessageId}}">
+      <block wx:for="{{messages}}" wx:key="index">
+        <view id="msg-{{index}}" class="message-item {{item.role}}">
+          <view class="avatar">{{item.role === 'user' ? '我' : (item.role === 'assistant' ? 'AI' : '!')}}</view>
+          <view class="content-wrap">
+            <view class="bubble">{{item.content}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+        </view>
+      </block>
+
+      <view wx:if="{{loading}}" class="message-item assistant">
+        <view class="avatar">AI</view>
+        <view class="content-wrap">
+          <view class="bubble">正在思考中...</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view class="input-area">
+      <textarea
+        class="input-box"
+        value="{{inputContent}}"
+        placeholder="请输入你的问题..."
+        maxlength="1000"
+        auto-height
+        bindinput="onInput"
+      />
+      <button class="btn btn-primary send-btn" bindtap="handleSend" loading="{{loading}}" disabled="{{loading}}">发送</button>
+    </view>
+  </view>
+</view>

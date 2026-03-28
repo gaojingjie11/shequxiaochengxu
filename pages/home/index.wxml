@@ -7,14 +7,13 @@
   </view>
 
   <view class="container">
-    <!-- Quick Menu -->
     <view class="quick-menu">
       <navigator url="/pages/mall/index" open-type="switchTab" class="quick-item">
-        <view class="quick-icon">🛒</view>
+        <view class="quick-icon">📦</view>
         <view class="quick-text">社区商城</view>
       </navigator>
       <navigator url="/pages/service/notice" class="quick-item">
-        <view class="quick-icon">📢</view>
+        <view class="quick-icon">📙</view>
         <view class="quick-text">公告通知</view>
       </navigator>
       <navigator url="/pages/service/repair" class="quick-item">
@@ -25,14 +24,16 @@
         <view class="quick-icon">👥</view>
         <view class="quick-text">访客登记</view>
       </navigator>
-      <!-- Data screen might not be suitable for MP, maybe omit or link to webview -->
-      <view class="quick-item" bindtap="showTip">
-        <view class="quick-icon">📊</view>
-        <view class="quick-text">数据大屏</view>
-      </view>
+      <navigator url="/pages/service/green-points" class="quick-item">
+        <view class="quick-icon">🏆</view>
+        <view class="quick-text">绿色积分</view>
+      </navigator>
+      <navigator url="/pages/chat/index" class="quick-item">
+        <view class="quick-icon">🤖</view>
+        <view class="quick-text">AI 对话</view>
+      </navigator>
     </view>
 
-    <!-- Notices -->
     <view class="section">
       <view class="section-title">最新公告</view>
       <view class="notice-list">
@@ -46,7 +47,7 @@
           </view>
         </block>
         <view wx:if="{{notices.length === 0}}" class="empty-state">
-           <text>暂无公告</text>
+          <text>暂无公告</text>
         </view>
       </view>
     </view>

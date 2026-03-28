@@ -1,0 +1,23 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="state-tip">加载中...</view>
+
+  <view wx:if="{{!loading && report}}" class="content">
+    <view class="meta card">
+      <view class="meta-row"><text class="label">生成时间：</text><text>{{report.created_at_text}}</text></view>
+      <view class="meta-row"><text class="label">新增报修：</text><text>{{report.repair_new_count || 0}}</text></view>
+      <view class="meta-row"><text class="label">未处理报修：</text><text>{{report.repair_pending_count || 0}}</text></view>
+      <view class="meta-row"><text class="label">新增访客：</text><text>{{report.visitor_new_count || 0}}</text></view>
+      <view class="meta-row"><text class="label">物业收缴：</text><text>￥{{report.property_paid_amount_text}}</text></view>
+    </view>
+
+    <view class="report-body card">
+      <view class="section-title">AI 报告正文</view>
+      <rich-text class="report-rich" nodes="{{reportHtml}}"></rich-text>
+      <view wx:if="{{!reportHtml && reportText}}" class="fallback-wrap">
+        <text class="report-text">{{reportText}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!loading && !report}}" class="state-tip">未找到报表</view>
+</view>

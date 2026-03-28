@@ -95,7 +95,8 @@ module.exports = {
             method: 'POST',
             data: {
                 business_id: data.related_id,
-                pay_type: 2
+                pay_type: 2,
+                password: data.password || ''
             }
         });
     },

@@ -1,7 +1,25 @@
-/* pages/order/list.wxss */
 .order-page {
   min-height: 100vh;
   background: #f7f8fa;
+}
+
+.mix-pay-tip {
+  margin: 16px;
+  background: #f6ffed;
+  border: 1px solid #b7eb8f;
+}
+
+.tip-title {
+  font-size: 14px;
+  color: #389e0d;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.tip-desc {
+  color: #5b8c00;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .tabs {
@@ -70,8 +88,24 @@
   flex: 1;
 }
 
-.prod-name { font-size: 14px; margin-bottom: 4px; }
-.prod-meta { color: #999; font-size: 12px; }
+.prod-name {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.prod-meta {
+  color: #999;
+  font-size: 12px;
+}
+
+.payment-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #666;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
 
 .order-footer {
   border-top: 1px solid #f0f0f0;
@@ -82,9 +116,8 @@
   text-align: right;
   font-size: 14px;
   margin-bottom: 12px;
+  color: #333;
 }
-
-.bold { font-weight: 600; }
 
 .action-row {
   display: flex;

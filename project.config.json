@@ -9,6 +9,10 @@
       },
       {
         "type": "folder",
+        "value": "_web_ref"
+      },
+      {
+        "type": "folder",
         "value": ".git"
       },
       {

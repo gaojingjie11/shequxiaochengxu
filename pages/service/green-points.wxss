@@ -1,0 +1,132 @@
+.green-points-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 20rpx;
+}
+
+.hero-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #2d3436;
+}
+
+.hero-desc {
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 26rpx;
+}
+
+.hero-stats {
+  margin-top: 20rpx;
+  display: flex;
+  gap: 16rpx;
+}
+
+.stat {
+  flex: 1;
+  background: #f0faf5;
+  border-radius: 12rpx;
+  padding: 16rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.stat-value {
+  margin-top: 8rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #00b894;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.preview-wrap {
+  width: 100%;
+  height: 320rpx;
+  border: 2rpx dashed #dfe6e9;
+  border-radius: 12rpx;
+  overflow: hidden;
+  margin-bottom: 16rpx;
+  background: #fafafa;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-row {
+  display: flex;
+  gap: 16rpx;
+}
+
+.btn-row .btn {
+  flex: 1;
+}
+
+.result-box {
+  margin-top: 20rpx;
+  background: #f6ffed;
+  border: 1rpx solid #b7eb8f;
+  border-radius: 12rpx;
+  padding: 16rpx;
+}
+
+.result-title {
+  font-size: 30rpx;
+  color: #389e0d;
+  font-weight: 600;
+}
+
+.result-text {
+  margin-top: 8rpx;
+  color: #666;
+  font-size: 25rpx;
+}
+
+.rank-item {
+  display: flex;
+  align-items: center;
+  padding: 14rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.rank-item:last-child {
+  border-bottom: none;
+}
+
+.rank-no {
+  width: 80rpx;
+  color: #999;
+}
+
+.rank-avatar {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  margin-right: 14rpx;
+}
+
+.rank-name {
+  flex: 1;
+  color: #333;
+}
+
+.rank-score {
+  color: #00b894;
+  font-weight: 600;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 20rpx 0;
+}

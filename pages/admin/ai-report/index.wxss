@@ -1,0 +1,54 @@
+.page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 16px;
+}
+
+.header {
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  margin: 0;
+}
+
+.report-card {
+  margin-bottom: 12px;
+}
+
+.report-time {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.report-summary {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.detail-link {
+  color: #00b894;
+  font-size: 13px;
+}
+
+.state-tip {
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+  padding: 12px 0 18px;
+}
