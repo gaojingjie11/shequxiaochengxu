@@ -5,6 +5,7 @@
     "pages/mall/detail",
     "pages/mall/cart",
     "pages/service/index",
+    "pages/service/community-chat",
     "pages/service/notice",
     "pages/service/repair",
     "pages/service/visitor",

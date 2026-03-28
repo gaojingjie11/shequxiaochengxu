@@ -32,7 +32,11 @@
         <view class="quick-icon">🤖</view>
         <view class="quick-text">AI 对话</view>
       </navigator>
-    </view>
+
+      <navigator url="/pages/service/community-chat" class="quick-item">
+        <view class="quick-icon">&#x1F4AC;</view>
+        <view class="quick-text">&#x793E;&#x533A;&#x7FA4;&#x804A;</view>
+      </navigator>    </view>
 
     <view class="section">
       <view class="section-title">最新公告</view>

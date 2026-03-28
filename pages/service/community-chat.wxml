@@ -1,0 +1,48 @@
+<view class="community-chat-page">
+  <view class="chat-card card">
+    <scroll-view
+      class="chat-list"
+      scroll-y="true"
+      scroll-into-view="{{lastMessageId}}"
+    >
+      <view wx:if="{{loading}}" class="state-text">加载中...</view>
+      <view wx:if="{{!loading && messages.length === 0}}" class="state-text">暂无消息，来发第一条吧</view>
+
+      <block wx:for="{{messages}}" wx:key="id">
+        <view id="{{item.viewId}}" class="message-item {{item.isSelf ? 'is-self' : ''}}">
+          <image class="avatar" src="{{item.avatar || defaultAvatar}}" mode="aspectFill"></image>
+          <view class="bubble-wrap">
+            <view class="meta">
+              <text class="name">{{item.username}}</text>
+              <text class="time">{{item.timeText}}</text>
+            </view>
+            <view class="bubble">{{item.content}}</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+
+    <view class="composer">
+      <textarea
+        class="composer-input"
+        value="{{draft}}"
+        maxlength="1000"
+        placeholder="说点什么..."
+        auto-height
+        bindinput="onDraftInput"
+      />
+      <view class="composer-actions">
+        <text class="hint">支持最多 1000 字</text>
+        <button
+          class="btn btn-primary send-btn"
+          size="mini"
+          bindtap="handleSend"
+          loading="{{sending}}"
+          disabled="{{sending || !canSend}}"
+        >
+          发送
+        </button>
+      </view>
+    </view>
+  </view>
+</view>
