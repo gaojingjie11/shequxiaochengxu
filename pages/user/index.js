@@ -41,7 +41,9 @@ Page({
                 if (!res.confirm) return;
                 try {
                     await logout();
-                } catch (e) {}
+                } catch (e) {
+                    // ignore
+                }
 
                 wx.removeStorageSync('token');
                 this.setData({

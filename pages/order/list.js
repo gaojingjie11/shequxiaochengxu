@@ -1,10 +1,20 @@
 const { getOrderList, payOrder, cancelOrder, receiveOrder } = require('../../api/order');
 const { getUserInfo } = require('../../api/user');
-const { confirmAction, promptPaymentPassword } = require('../../utils/paymentPassword');
+const { confirmAction, promptPaymentAuth } = require('../../utils/paymentPassword');
 const { GREEN_POINTS_PER_YUAN, getMixedPaymentPreview } = require('../../utils/payment');
 
 function formatAmount(value) {
     return Number(value || 0).toFixed(2);
+}
+
+function wait(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+
+function createPayWaitMs() {
+    return 3000 + Math.floor(Math.random() * 2001);
 }
 
 Page({
@@ -120,20 +130,29 @@ Page({
         );
         if (!confirmed) return;
 
-        const password = await promptPaymentPassword({
-            title: '订单支付',
-            placeholder: '请输入登录密码'
+        const authPayload = await promptPaymentAuth({
+            title: '\u8ba2\u5355\u652f\u4ed8\u9a8c\u8bc1',
+            passwordPlaceholder: '\u8bf7\u8f93\u5165\u767b\u5f55\u5bc6\u7801',
+            faceRegistered: !!(this.data.userInfo && this.data.userInfo.face_registered)
         });
 
-        if (!password) {
-            wx.showToast({ title: '已取消支付', icon: 'none' });
+        if (!authPayload) {
             return;
         }
 
+        wx.showLoading({ title: '正在支付...', mask: true });
         try {
-            const result = await payOrder({ order_id: id, password });
+            const [result] = await Promise.all([
+                payOrder({
+                    order_id: id,
+                    business_type: 1,
+                    ...authPayload
+                }),
+                wait(createPayWaitMs())
+            ]);
+            const paymentResult = result && result.payment_result ? result.payment_result : result;
             wx.showToast({
-                title: `支付成功 积分${Number(result.used_points || 0)} 余额￥${formatAmount(result.used_balance || 0)}`,
+                title: `支付成功 积分${Number(paymentResult.used_points || 0)} 余额￥${formatAmount(paymentResult.used_balance || 0)}`,
                 icon: 'none'
             });
             this.setData({ page: 1 });
@@ -141,6 +160,8 @@ Page({
             await this.getOrders(true);
         } catch (err) {
             // 错误提示由 request.js 统一处理
+        } finally {
+            wx.hideLoading();
         }
     },
 

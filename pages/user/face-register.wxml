@@ -1,0 +1,20 @@
+<view class="face-register-page">
+  <view class="card status-card" wx:if="{{userInfo}}">
+    <view class="title-row">
+      <text class="title">当前人脸状态</text>
+      <view class="status-tag {{userInfo.face_registered ? 'is-registered' : 'is-unregistered'}}">
+        {{userInfo.face_registered ? '已录入' : '未录入'}}
+      </view>
+    </view>
+    <view class="desc">
+      录入后可在订单支付、物业缴费时选择刷脸支付。
+    </view>
+  </view>
+
+  <view class="card action-card">
+    <button class="capture-btn" type="primary" loading="{{registering}}" disabled="{{registering}}" bindtap="handleRegisterFace">
+      {{registering ? '录入中...' : (userInfo && userInfo.face_registered ? '重新录入人脸' : '立即录入人脸')}}
+    </button>
+    <view class="tip">请在光线充足环境下正对镜头拍照。</view>
+  </view>
+</view>

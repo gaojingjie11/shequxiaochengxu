@@ -1,0 +1,58 @@
+.face-register-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.status-tag {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.status-tag.is-registered {
+  color: #0d9488;
+  background: #ecfeff;
+}
+
+.status-tag.is-unregistered {
+  color: #d97706;
+  background: #fffbeb;
+}
+
+.desc {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.capture-btn {
+  width: 100%;
+}
+
+.tip {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+}

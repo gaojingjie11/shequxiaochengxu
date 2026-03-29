@@ -38,18 +38,26 @@
 
   <view class="menu-grid">
     <navigator url="/pages/order/list" class="menu-item card">
-      <view class="menu-icon">📝</view>
+      <view class="menu-icon">📦</view>
       <view>我的订单</view>
     </navigator>
 
     <navigator url="/pages/user/favorites" class="menu-item card">
-      <view class="menu-icon">❤️</view>
+      <view class="menu-icon">⭐</view>
       <view>我的收藏</view>
     </navigator>
 
     <navigator url="/pages/service/index" open-type="switchTab" class="menu-item card">
       <view class="menu-icon">🛠️</view>
       <view>社区服务</view>
+    </navigator>
+
+    <navigator url="/pages/user/face-register" class="menu-item card" wx:if="{{userInfo}}">
+      <view class="menu-icon">📷</view>
+      <view>人脸录入</view>
+      <view class="face-status {{userInfo.face_registered ? 'is-registered' : 'is-unregistered'}}">
+        {{userInfo.face_registered ? '已录入' : '未录入'}}
+      </view>
     </navigator>
 
     <navigator wx:if="{{showAIReportEntry}}" url="/pages/admin/ai-report/index" class="menu-item card">

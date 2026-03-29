@@ -17,6 +17,7 @@
     "pages/order/detail",
     "pages/order/create",
     "pages/user/index",
+    "pages/user/face-register",
     "pages/auth/login",
     "pages/auth/register",
     "pages/user/favorites",
