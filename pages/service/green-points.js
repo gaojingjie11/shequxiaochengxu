@@ -74,7 +74,14 @@ Page({
             });
             await Promise.all([this.loadUserInfo(), this.loadLeaderboard()]);
         } catch (e) {
-            console.error(e);
+            // Toast is usually handled in api/greenPoints.js.
+            if (!e || !e.__toastShown) {
+                wx.showToast({
+                    title: (e && e.message) || '图片识别失败，请稍后重试',
+                    icon: 'none'
+                });
+            }
+            this.setData({ recognitionResult: null });
         } finally {
             this.setData({ uploading: false });
         }

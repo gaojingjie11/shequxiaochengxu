@@ -1,5 +1,20 @@
 const request = require('../utils/request');
 
+function normalizeGreenPointsErrorMessage(msg, fallback = '识别失败，请稍后重试') {
+    const text = String(msg || '').trim();
+    if (!text) return fallback;
+
+    if (/garbage recognition failed/i.test(text) || /unexpected end of json input/i.test(text)) {
+        return '图片识别失败，请重新拍摄清晰图片后重试';
+    }
+
+    if (/invalid image|decode|unsupported/i.test(text)) {
+        return '图片格式不支持，请上传清晰的 JPG/PNG 图片';
+    }
+
+    return text;
+}
+
 function uploadGarbageImage(filePath) {
     return new Promise((resolve, reject) => {
         const token = wx.getStorageSync('token');
@@ -18,8 +33,9 @@ function uploadGarbageImage(filePath) {
                 try {
                     data = JSON.parse(res.data || '{}');
                 } catch (e) {
-                    wx.showToast({ title: '响应解析失败', icon: 'none' });
-                    reject(e);
+                    const message = '识别服务响应异常，请稍后重试';
+                    wx.showToast({ title: message, icon: 'none' });
+                    reject({ message, __toastShown: true });
                     return;
                 }
 
@@ -33,15 +49,25 @@ function uploadGarbageImage(filePath) {
                     wx.redirectTo({ url: '/pages/auth/login' });
                 }
 
+                const message = normalizeGreenPointsErrorMessage(data.msg, '图片识别失败，请稍后重试');
                 wx.showToast({
-                    title: data.msg || '上传失败',
+                    title: message,
                     icon: 'none'
                 });
-                reject(data);
+                reject({
+                    ...(data || {}),
+                    message,
+                    __toastShown: true
+                });
             },
             fail: (err) => {
-                wx.showToast({ title: '网络错误', icon: 'none' });
-                reject(err);
+                const message = '网络错误，请检查网络后重试';
+                wx.showToast({ title: message, icon: 'none' });
+                reject({
+                    ...(err || {}),
+                    message,
+                    __toastShown: true
+                });
             }
         });
     });
