@@ -1,73 +1,82 @@
-<view class="user-page">
-  <view class="user-header card">
-    <block wx:if="{{userInfo}}">
-      <view class="user-info-row">
-        <image class="avatar" src="{{userInfo.avatar || '/assets/icons/user.png'}}" mode="aspectFill"></image>
-        <view class="info-col">
-          <view class="name-row">
-            <text class="name">{{userInfo.real_name || userInfo.username}}</text>
-            <view class="role-tag">{{roleMap[userInfo.role] || '居民'}}</view>
-          </view>
-          <text class="mobile">{{userInfo.mobile}}</text>
-        </view>
-      </view>
-
-      <view class="stats-row">
-        <view class="stat-item">
-          <view class="stat-label">余额</view>
-          <view class="stat-val">￥{{userInfo.balance || 0}}</view>
-        </view>
-        <view class="stat-item">
-          <view class="stat-label">绿色积分</view>
-          <view class="stat-val">{{userInfo.green_points || 0}}</view>
-        </view>
-        <view class="stat-item">
-          <view class="stat-label">状态</view>
-          <view class="stat-val status-{{userInfo.status}}">{{userInfo.status === 1 ? '正常' : '异常'}}</view>
-        </view>
-      </view>
-    </block>
-
-    <block wx:else>
-      <view class="unlogin-view" bindtap="goToLogin">
-        <image class="avatar" src="/assets/icons/user.png"></image>
-        <view class="login-text">点击登录/注册</view>
-      </view>
-    </block>
+<view class="user-page page-shell">
+  <view class="profile-hero">
+    <view class="container">
+      <view class="profile-title">个人中心</view>
+      <view class="profile-subtitle">账户信息与常用功能</view>
+    </view>
   </view>
 
-  <view class="menu-grid">
-    <navigator url="/pages/order/list" class="menu-item card">
-      <view class="menu-icon">📦</view>
-      <view>我的订单</view>
-    </navigator>
+  <view class="container profile-main">
+    <view class="user-header card">
+      <block wx:if="{{userInfo}}">
+        <view class="user-info-row">
+          <image class="avatar" src="{{userInfo.avatar || '/assets/icons/user.png'}}" mode="aspectFill"></image>
+          <view class="info-col">
+            <view class="name-row">
+              <text class="name">{{userInfo.real_name || userInfo.username}}</text>
+              <view class="role-tag">{{roleMap[userInfo.role] || '居民'}}</view>
+            </view>
+            <text class="mobile">{{userInfo.mobile}}</text>
+          </view>
+        </view>
 
-    <navigator url="/pages/user/favorites" class="menu-item card">
-      <view class="menu-icon">⭐</view>
-      <view>我的收藏</view>
-    </navigator>
+        <view class="stats-row">
+          <view class="stat-item">
+            <view class="stat-label">余额</view>
+            <view class="stat-val">¥{{userInfo.balance || 0}}</view>
+          </view>
+          <view class="stat-item">
+            <view class="stat-label">绿色积分</view>
+            <view class="stat-val">{{userInfo.green_points || 0}}</view>
+          </view>
+          <view class="stat-item">
+            <view class="stat-label">状态</view>
+            <view class="stat-val status-{{userInfo.status}}">{{userInfo.status === 1 ? '正常' : '异常'}}</view>
+          </view>
+        </view>
+      </block>
 
-    <navigator url="/pages/service/index" open-type="switchTab" class="menu-item card">
-      <view class="menu-icon">🛠️</view>
-      <view>社区服务</view>
-    </navigator>
+      <block wx:else>
+        <view class="unlogin-view" bindtap="goToLogin">
+          <image class="avatar" src="/assets/icons/user.png"></image>
+          <view class="login-text">点击登录/注册</view>
+        </view>
+      </block>
+    </view>
 
-    <navigator url="/pages/user/face-register" class="menu-item card" wx:if="{{userInfo}}">
-      <view class="menu-icon">📷</view>
-      <view>人脸录入</view>
-      <view class="face-status {{userInfo.face_registered ? 'is-registered' : 'is-unregistered'}}">
-        {{userInfo.face_registered ? '已录入' : '未录入'}}
+    <view class="menu-grid">
+      <navigator url="/pages/order/list" class="menu-item card">
+        <view class="menu-icon">🛍</view>
+        <view class="menu-title">我的订单</view>
+      </navigator>
+
+      <navigator url="/pages/user/favorites" class="menu-item card">
+        <view class="menu-icon">⭐</view>
+        <view class="menu-title">我的收藏</view>
+      </navigator>
+
+      <navigator url="/pages/service/index" open-type="switchTab" class="menu-item card">
+        <view class="menu-icon">🛠</view>
+        <view class="menu-title">社区服务</view>
+      </navigator>
+
+      <navigator url="/pages/user/face-register" class="menu-item card" wx:if="{{userInfo}}">
+        <view class="menu-icon">📷</view>
+        <view class="menu-title">人脸录入</view>
+        <view class="face-status {{userInfo.face_registered ? 'is-registered' : 'is-unregistered'}}">
+          {{userInfo.face_registered ? '已录入' : '未录入'}}
+        </view>
+      </navigator>
+
+      <navigator wx:if="{{showAIReportEntry}}" url="/pages/admin/ai-report/index" class="menu-item card">
+        <view class="menu-icon">📊</view>
+        <view class="menu-title">AI报表</view>
+      </navigator>
+
+      <view class="menu-item card" bindtap="handleLogout" wx:if="{{userInfo}}">
+        <view class="menu-icon">🚪</view>
+        <view class="menu-title">退出登录</view>
       </view>
-    </navigator>
-
-    <navigator wx:if="{{showAIReportEntry}}" url="/pages/admin/ai-report/index" class="menu-item card">
-      <view class="menu-icon">📊</view>
-      <view>AI报表</view>
-    </navigator>
-
-    <view class="menu-item card" bindtap="handleLogout" wx:if="{{userInfo}}">
-      <view class="menu-icon">🚪</view>
-      <view>退出登录</view>
     </view>
   </view>
 </view>

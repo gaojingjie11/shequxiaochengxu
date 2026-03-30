@@ -1,4 +1,4 @@
-<view class="face-register-page">
+<view class="face-register-page page-shell">
   <view class="card status-card" wx:if="{{userInfo}}">
     <view class="title-row">
       <text class="title">当前人脸状态</text>
@@ -12,7 +12,7 @@
   </view>
 
   <view class="card action-card">
-    <button class="capture-btn" type="primary" loading="{{registering}}" disabled="{{registering}}" bindtap="handleRegisterFace">
+    <button class="capture-btn btn btn-primary" loading="{{registering}}" disabled="{{registering}}" bindtap="handleRegisterFace">
       {{registering ? '录入中...' : (userInfo && userInfo.face_registered ? '重新录入人脸' : '立即录入人脸')}}
     </button>
     <view class="tip">请在光线充足环境下正对镜头拍照。</view>

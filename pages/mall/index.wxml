@@ -1,6 +1,12 @@
-<view class="mall-page">
-  <!-- Search -->
-  <view class="search-section">
+<view class="mall-page page-shell">
+  <view class="mall-top">
+    <view class="container">
+      <view class="mall-title">社区商城</view>
+      <view class="mall-subtitle">精选商品，安心到家</view>
+    </view>
+  </view>
+
+  <view class="search-section container">
     <view class="search-bar">
       <icon type="search" size="16" class="search-icon"></icon>
       <input 
@@ -14,7 +20,6 @@
     </view>
   </view>
 
-  <!-- Categories -->
   <scroll-view scroll-x class="category-scroll" enable-flex>
     <view 
       class="category-item {{selectedCategory === 0 ? 'active' : ''}}" 
@@ -30,7 +35,6 @@
     </block>
   </scroll-view>
 
-  <!-- Product List -->
   <view class="product-grid">
     <block wx:for="{{products}}" wx:key="id">
       <navigator url="/pages/mall/detail?id={{item.id}}" class="product-card">

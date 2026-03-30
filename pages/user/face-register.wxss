@@ -1,14 +1,12 @@
 .face-register-page {
   min-height: 100vh;
-  background: #f7f8fa;
-  padding: 16px;
+  background: var(--bg-page);
+  padding: 12px;
 }
 
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
+.status-card,
+.action-card {
+  margin-bottom: 12px;
 }
 
 .title-row {
@@ -19,8 +17,8 @@
 
 .title {
   font-size: 17px;
-  font-weight: 600;
-  color: #111827;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .status-tag {
@@ -30,19 +28,19 @@
 }
 
 .status-tag.is-registered {
-  color: #0d9488;
-  background: #ecfeff;
+  color: #1f9d72;
+  background: #e9f8f2;
 }
 
 .status-tag.is-unregistered {
-  color: #d97706;
-  background: #fffbeb;
+  color: #a36a00;
+  background: #fff8e8;
 }
 
 .desc {
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-secondary);
   line-height: 1.7;
 }
 
@@ -52,7 +50,7 @@
 
 .tip {
   margin-top: 10px;
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 12px;
+  color: var(--text-tertiary);
   text-align: center;
 }

@@ -1,7 +1,7 @@
-<view class="container">
+<view class="container page-shell">
   <view class="mix-pay-tip card" wx:if="{{userInfo}}">
-    <view class="tip-title">当前绿色积分 {{userInfo.green_points || 0}}，账户余额 ￥{{userBalanceText}}</view>
-    <view class="tip-desc">支付时将按 {{greenPointsPerYuan}} 积分 = 1 元 自动优先扣除积分，不足部分再扣余额。</view>
+    <view class="tip-title">当前绿色积分 {{userInfo.green_points || 0}}，账户余额 ¥{{userBalanceText}}</view>
+    <view class="tip-desc">支付时将按 {{greenPointsPerYuan}} 积分 = 1 元，自动优先扣除积分，不足部分再扣余额。</view>
   </view>
 
   <view class="tabs">
@@ -14,7 +14,7 @@
       <view class="fee-card card">
         <view class="header">
           <text class="title">{{item.title || '物业费账单'}}</text>
-          <text class="amount">￥{{item.amount_text}}</text>
+          <text class="amount">¥{{item.amount_text}}</text>
         </view>
 
         <view class="info">
@@ -28,7 +28,7 @@
           </view>
           <view class="row" wx:if="{{activeTab === 0}}">
             <text class="label">预计余额：</text>
-            <text class="val">￥{{item.payment_preview.balance_text}}</text>
+            <text class="val">¥{{item.payment_preview.balance_text}}</text>
           </view>
           <view class="row" wx:if="{{activeTab === 1}}">
             <text class="label">实际积分：</text>
@@ -36,7 +36,7 @@
           </view>
           <view class="row" wx:if="{{activeTab === 1}}">
             <text class="label">实际余额：</text>
-            <text class="val">￥{{item.used_balance_text}}</text>
+            <text class="val">¥{{item.used_balance_text}}</text>
           </view>
           <view class="row" wx:if="{{activeTab === 1}}">
             <text class="label">缴费时间：</text>

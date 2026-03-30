@@ -1,6 +1,29 @@
 const { getProductDetail, addFavorite, removeFavorite, checkFavorite } = require('../../api/product');
 const { addToCart } = require('../../api/order');
 const { getCommentList } = require('../../api/comment');
+const { formatTime } = require('../../utils/util');
+
+function formatCommentTime(value) {
+    if (value === null || value === undefined || value === '') return '';
+
+    let date = null;
+    if (typeof value === 'number' || /^\d+$/.test(String(value))) {
+        let ts = Number(value);
+        if (!Number.isNaN(ts) && ts > 0) {
+            // Compatible with seconds timestamps.
+            if (ts < 1e12) ts *= 1000;
+            date = new Date(ts);
+        }
+    } else {
+        date = new Date(value);
+    }
+
+    if (!date || Number.isNaN(date.getTime())) {
+        return String(value);
+    }
+
+    return formatTime(date, false).replace(/\//g, '-');
+}
 
 Page({
     data: {
@@ -36,7 +59,10 @@ Page({
                 page: this.data.page,
                 size: this.data.size
             });
-            const list = res.list || res || [];
+            const list = (res.list || res || []).map((item) => ({
+                ...item,
+                created_at_text: formatCommentTime(item.created_at)
+            }));
             this.setData({ comments: list });
         } catch (e) {
             console.error(e);

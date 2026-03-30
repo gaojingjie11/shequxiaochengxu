@@ -1,113 +1,158 @@
-/* pages/service/repair.wxss */
 .repair-page {
   min-height: 100vh;
-  background: #f7f8fa;
-  padding: 16px;
+  background: var(--bg-page);
+  padding: 12px;
 }
 
 .page-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
 }
 
 .repair-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
+  padding: 16px;
 }
 
 .form-title {
   font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-primary);
 }
 
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  position: relative;
 }
 
 .label {
   display: block;
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
 }
 
 .picker-val {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f9fbfd;
+  color: var(--text-primary);
 }
 
-.input, .textarea {
+.arrow {
+  position: absolute;
+  right: 12px;
+  top: 36px;
+  color: var(--text-tertiary);
+}
+
+.input,
+.textarea {
   width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 10px 12px;
   font-size: 14px;
-  background: #fff;
+  background: #f9fbfd;
+  color: var(--text-primary);
 }
 
 .textarea {
-  height: 100px;
+  min-height: 100px;
+}
+
+.btn-submit {
+  margin-top: 6px;
 }
 
 .section-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.repair-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .repair-card {
-  background: #fff;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .repair-header {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  gap: 10px;
+  margin-bottom: 10px;
+  gap: 8px;
 }
 
 .repair-category {
-  font-weight: 600;
+  font-weight: 700;
   flex: 1;
+  color: var(--text-primary);
 }
 
 .tag {
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  padding: 2px 9px;
 }
 
-.tag-info { background: #e6f7ff; color: #1890ff; }
-.tag-warning { background: #fffbe6; color: #faad14; }
-.tag-status { background: #f0f0f0; color: #666; }
+.tag-info {
+  background: #edf4fb;
+  color: var(--primary-color);
+}
+
+.tag-warning {
+  background: #fff8e8;
+  color: #a36a00;
+}
+
+.tag-status {
+  background: #eef3f8;
+  color: var(--text-secondary);
+}
 
 .repair-content {
   font-size: 14px;
-  color: #666;
-  margin-bottom: 12px;
+  color: var(--text-primary);
+  line-height: 1.7;
 }
 
 .repair-result {
-  background: #f9f9f9;
-  padding: 10px;
-  font-size: 12px;
-  margin-bottom: 8px;
-  border-radius: 4px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #f7fafc;
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
-.bold { font-weight: 600; }
+.bold {
+  color: var(--text-primary);
+  font-weight: 600;
+}
 
 .repair-time {
+  margin-top: 10px;
   font-size: 12px;
-  color: #999;
+  color: var(--text-tertiary);
 }
 
-.empty-state { text-align: center; color: #999; padding: 20px; }
+.empty-state {
+  text-align: center;
+  color: var(--text-tertiary);
+  padding: 34px 0 20px;
+}

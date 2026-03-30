@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container page-shell">
   <view class="product-list" wx:if="{{products.length > 0}}">
     <view class="product-item card" wx:for="{{products}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
       <image class="product-img" src="{{item.image_url}}" mode="aspectFill"></image>

@@ -1,8 +1,7 @@
-<view class="create-order-page">
+<view class="create-order-page page-shell">
   <view class="container">
     <view class="page-title">确认订单</view>
     
-    <!-- Store Selector -->
     <view class="section card">
       <view class="section-title">选择服务门店</view>
       <picker range="{{storeList}}" range-key="name" bindchange="bindStoreChange" value="{{selectedStoreIndex}}">
@@ -14,7 +13,6 @@
       <view class="store-address" wx:if="{{storeList.length > 0}}">{{storeList[selectedStoreIndex].address}}</view>
     </view>
     
-    <!-- Items -->
     <view class="section card">
       <view class="section-title">商品清单</view>
       <view class="order-items">
@@ -34,7 +32,7 @@
   
   <view class="footer-bar">
     <view class="total-info">
-      <text>共 {{totalCount}} 件, 合计:</text>
+      <text>共 {{totalCount}} 件 合计:</text>
       <text class="total-price">¥{{totalPrice}}</text>
     </view>
     <button class="btn btn-primary submit-btn" bindtap="submitOrder" loading="{{submitting}}">提交订单</button>

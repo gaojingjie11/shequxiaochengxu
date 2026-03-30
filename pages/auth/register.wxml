@@ -1,9 +1,11 @@
-<view class="login-page">
+<view class="login-page page-shell">
   <view class="login-container">
-    <view class="card login-card">
+    <view class="login-hero">
       <view class="login-title">创建账号</view>
-      <view class="login-subtitle">加入智慧社区</view>
+      <view class="login-subtitle">加入智享生活</view>
+    </view>
 
+    <view class="card login-card">
       <view class="login-form">
         <view class="form-group">
           <text class="label">手机号</text>
@@ -21,7 +23,7 @@
         </view>
 
         <view class="form-footer">
-          <text class="link" bindtap="goToLogin">已有账号？登录</text>
+          <text class="link" bindtap="goToLogin">已有账号？去登录</text>
         </view>
 
         <button class="btn btn-primary btn-lg mt-md" bindtap="handleRegister" loading="{{loading}}">注册</button>

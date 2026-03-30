@@ -11,9 +11,29 @@ function nowTime() {
 function buildGreetingMessage() {
     return {
         role: 'assistant',
-        content: '您好，我是智慧社区助手。您可以让我帮您总结通知、创建报修、搜索商品、下单和支付。',
+        content: '您好，我是智享生活助手。您可以让我帮您总结通知、创建报修、搜索商品、下单和支付。',
         time: nowTime()
     };
+}
+
+function normalizeChatErrorMessage(err, fallback = '请求失败，请稍后重试') {
+    const raw =
+        err?.msg ||
+        err?.message ||
+        err?.error ||
+        err?.data?.msg ||
+        err?.data?.message ||
+        err?.data?.error ||
+        '';
+    const text = String(raw || '').trim();
+
+    if (!text) return fallback;
+    if (/invalid payment password/i.test(text)) return '支付密码错误，请重试';
+    if (/payment password is required/i.test(text)) return '请输入支付密码后再试';
+    if (/insufficient balance/i.test(text)) return '余额不足，请先充值';
+    if (/payment failed:/i.test(text)) return `支付失败：${text.replace(/^payment failed:\s*/i, '')}`;
+    if (/payment failed/i.test(text)) return '支付失败，请重试';
+    return text;
 }
 
 Page({
@@ -106,9 +126,13 @@ Page({
                 payment_password: paymentPassword
             });
 
+            if (res && (res.success === false || res.ok === false || res.payment_success === false)) {
+                throw new Error(normalizeChatErrorMessage(res, '支付失败，请重试'));
+            }
+
             const reply = ((res && res.reply) || '').trim();
             if (!reply) {
-                throw new Error('empty AI response');
+                throw new Error(normalizeChatErrorMessage(res, '未获取到AI回复，请稍后重试'));
             }
 
             this.setData({
@@ -123,12 +147,20 @@ Page({
             }, this.scrollToBottom);
         } catch (e) {
             console.error(e);
+            const errMsg = normalizeChatErrorMessage(e, '请求失败，请稍后重试');
+            const hasRequestToast = !!(e && typeof e === 'object' && (e.msg || (e.data && e.data.msg)));
+            if (!hasRequestToast) {
+                wx.showToast({
+                    title: errMsg,
+                    icon: 'none'
+                });
+            }
             this.setData({
                 messages: [
                     ...this.data.messages,
                     {
                         role: 'system',
-                        content: `生成失败：${(e && e.message) || '网络错误'}`,
+                        content: `${this.isPayIntent(content) ? '支付失败' : '生成失败'}：${errMsg}`,
                         time: nowTime()
                     }
                 ]

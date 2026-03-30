@@ -1,4 +1,4 @@
-<view class="cart-page">
+<view class="cart-page page-shell">
   <view class="cart-list" wx:if="{{cartItems.length > 0}}">
     <block wx:for="{{cartItems}}" wx:key="id">
       <view class="cart-item card">
@@ -20,12 +20,11 @@
   </view>
   
   <view class="empty-state" wx:else>
-    <view class="empty-icon">🛒</view>
-    <view>购物车是空的</view>
+    <view class="empty-icon">🧺</view>
+    <view class="empty-text">购物车是空的</view>
     <navigator url="/pages/mall/index" open-type="switchTab" class="btn btn-primary mt-md">去购物</navigator>
   </view>
 
-  <!-- Footer -->
   <view class="cart-footer" wx:if="{{cartItems.length > 0}}">
     <view class="total-info">
       <text>总计:</text>

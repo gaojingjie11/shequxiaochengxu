@@ -1,7 +1,7 @@
-<view class="detail-page" wx:if="{{order}}">
+<view class="detail-page page-shell" wx:if="{{order}}">
   <view class="status-card card">
     <view class="status-text">{{statusMap[order.status]}}</view>
-    <view class="order-no">订单号: {{order.order_no}}</view>
+    <view class="order-no">订单号 {{order.order_no}}</view>
   </view>
   
   <view class="address-card card">

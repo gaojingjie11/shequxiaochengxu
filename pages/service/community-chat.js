@@ -26,6 +26,7 @@ Page({
         sending: false,
         currentUserId: 0,
         lastMessageId: '',
+        scrollTop: 0,
         defaultAvatar: DEFAULT_AVATAR
     },
 
@@ -100,12 +101,24 @@ Page({
     },
 
     scrollToBottom() {
-        const size = this.data.messages.length;
-        if (size <= 0) {
-            this.setData({ lastMessageId: '' });
+        if (this.data.messages.length <= 0) {
+            this.setData({ lastMessageId: '', scrollTop: 0 });
             return;
         }
-        this.setData({ lastMessageId: `msg-${size - 1}` });
+
+        // Reset anchor first to force scroll-into-view retrigger.
+        this.setData({
+            lastMessageId: '',
+            scrollTop: Number(this.data.scrollTop || 0) + 1
+        }, () => {
+            setTimeout(() => {
+                this.setData({
+                    lastMessageId: 'chat-bottom-anchor',
+                    // Fallback for some base library versions.
+                    scrollTop: Number(this.data.scrollTop || 0) + 100000
+                });
+            }, 20);
+        });
     },
 
     async fetchMessages(options = {}) {
@@ -119,7 +132,10 @@ Page({
             const descList = Array.isArray(res && res.list) ? res.list : [];
             const ascList = descList.slice().reverse();
             const messages = this.normalizeMessages(ascList);
-            this.setData({ messages }, () => this.scrollToBottom());
+            this.setData({ messages }, () => {
+                this.scrollToBottom();
+                setTimeout(() => this.scrollToBottom(), 120);
+            });
         } catch (e) {
             console.error('failed to fetch community messages', e);
         } finally {

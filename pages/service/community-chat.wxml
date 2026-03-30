@@ -1,9 +1,10 @@
-<view class="community-chat-page">
+<view class="community-chat-page page-shell">
   <view class="chat-card card">
     <scroll-view
       class="chat-list"
       scroll-y="true"
       scroll-into-view="{{lastMessageId}}"
+      scroll-top="{{scrollTop}}"
     >
       <view wx:if="{{loading}}" class="state-text">加载中...</view>
       <view wx:if="{{!loading && messages.length === 0}}" class="state-text">暂无消息，来发第一条吧</view>
@@ -20,6 +21,7 @@
           </view>
         </view>
       </block>
+      <view id="chat-bottom-anchor" class="bottom-anchor"></view>
     </scroll-view>
 
     <view class="composer">

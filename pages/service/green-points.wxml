@@ -1,4 +1,4 @@
-<view class="green-points-page">
+<view class="green-points-page page-shell">
   <view class="hero card">
     <view class="hero-title">绿色积分中心</view>
     <view class="hero-desc">上传垃圾分类照片，AI 自动识别并发放积分。</view>
@@ -9,7 +9,7 @@
       </view>
       <view class="stat">
         <view class="stat-label">账户余额</view>
-        <view class="stat-value">￥{{userInfo.balance || 0}}</view>
+        <view class="stat-value">¥{{userInfo.balance || 0}}</view>
       </view>
     </view>
   </view>
@@ -20,7 +20,7 @@
       <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
     </view>
     <view class="btn-row">
-      <button class="btn" bindtap="chooseImage">选择图片</button>
+      <button class="btn btn-secondary" bindtap="chooseImage">选择图片</button>
       <button class="btn btn-primary" bindtap="submitImage" loading="{{uploading}}" disabled="{{!imagePath || uploading}}">识别并领积分</button>
     </view>
 

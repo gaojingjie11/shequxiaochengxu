@@ -1,11 +1,18 @@
-<view class="service-page">
-  <view class="container">
-    <view class="page-title">社区服务</view>
+<view class="service-page page-shell">
+  <view class="service-hero">
+    <view class="container">
+      <view class="service-title">社区服务</view>
+      <view class="service-subtitle">物业服务、民生办理与智能助手</view>
+    </view>
+  </view>
 
+  <view class="container service-main">
     <view class="service-menu">
       <block wx:for="{{menuList}}" wx:key="name">
         <view class="service-card card" bindtap="handleTap" data-url="{{item.url}}">
-          <view class="service-icon">{{item.icon}}</view>
+          <view class="service-icon-wrap">
+            <view class="service-icon">{{item.icon}}</view>
+          </view>
           <view class="service-name">{{item.name}}</view>
           <view class="service-desc">{{item.desc}}</view>
         </view>

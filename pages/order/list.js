@@ -17,6 +17,17 @@ function createPayWaitMs() {
     return 3000 + Math.floor(Math.random() * 2001);
 }
 
+function normalizePayErrorMessage(err) {
+    const text = String(err?.msg || err?.message || err?.data?.msg || '').trim();
+    if (!text) return '支付失败，请稍后重试';
+    if (/invalid payment password/i.test(text)) return '支付密码错误，请重试';
+    if (/payment password is required/i.test(text)) return '请输入支付密码后再试';
+    if (/face image is required/i.test(text)) return '未获取到人脸图片，请重试';
+    if (/payment failed:/i.test(text)) return `支付失败：${text.replace(/^payment failed:\s*/i, '')}`;
+    if (/payment failed/i.test(text)) return '支付失败，请重试';
+    return text;
+}
+
 Page({
     data: {
         tabs: [
@@ -141,6 +152,7 @@ Page({
         }
 
         wx.showLoading({ title: '正在支付...', mask: true });
+        let paymentResult = null;
         try {
             const [result] = await Promise.all([
                 payOrder({
@@ -150,18 +162,27 @@ Page({
                 }),
                 wait(createPayWaitMs())
             ]);
-            const paymentResult = result && result.payment_result ? result.payment_result : result;
+            paymentResult = result && result.payment_result ? result.payment_result : result;
+        } catch (err) {
+            wx.hideLoading();
             wx.showToast({
-                title: `支付成功 积分${Number(paymentResult.used_points || 0)} 余额￥${formatAmount(paymentResult.used_balance || 0)}`,
+                title: normalizePayErrorMessage(err),
                 icon: 'none'
             });
-            this.setData({ page: 1 });
+            return;
+        }
+
+        wx.hideLoading();
+        wx.showToast({
+            title: `支付成功 积分${Number(paymentResult.used_points || 0)} 余额￥${formatAmount(paymentResult.used_balance || 0)}`,
+            icon: 'none'
+        });
+        this.setData({ page: 1 });
+        try {
             await this.refreshUserInfo();
             await this.getOrders(true);
         } catch (err) {
-            // 错误提示由 request.js 统一处理
-        } finally {
-            wx.hideLoading();
+            console.error(err);
         }
     },
 

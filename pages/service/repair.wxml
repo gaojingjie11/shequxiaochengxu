@@ -1,8 +1,7 @@
-<view class="repair-page">
+<view class="repair-page page-shell">
   <view class="container">
     <view class="page-title">报修投诉</view>
     
-    <!-- Submit Form -->
     <view class="card repair-form">
       <view class="form-title">提交新的报修/投诉</view>
       
@@ -16,7 +15,7 @@
       
       <view class="form-group">
         <text class="label">分类</text>
-        <input class="input" placeholder="如: 水电、门窗、噪音等" bindinput="onInput" data-field="category" value="{{category}}" />
+        <input class="input" placeholder="如：水电、门窗、噪音等" bindinput="onInput" data-field="category" value="{{category}}" />
       </view>
       
       <view class="form-group">
@@ -27,7 +26,6 @@
       <button class="btn btn-primary btn-submit" bindtap="submitRepair" loading="{{submitting}}">提交</button>
     </view>
     
-    <!-- History List -->
     <view class="section-title">我的记录</view>
     <view class="repair-list">
       <block wx:for="{{repairs}}" wx:key="id">

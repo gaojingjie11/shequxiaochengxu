@@ -1,57 +1,63 @@
-/* pages/order/create.wxss */
 .create-order-page {
   min-height: 100vh;
-  padding-bottom: 80px;
-  background: #f7f8fa;
-  padding-top: 10px;
+  padding: 12px 0 84px;
+  background: var(--bg-page);
 }
 
 .page-title {
-  padding: 0 16px;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
 }
 
 .section {
-  background: #fff;
-  border-radius: 12px;
-  margin: 0 16px 16px;
-  padding: 16px;
+  margin: 0 0 12px;
 }
 
 .section-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
   padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .picker-row {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
-  font-size: 16px;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.arrow {
+  color: var(--text-tertiary);
 }
 
 .store-address {
   font-size: 12px;
-  color: #999;
+  color: var(--text-secondary);
 }
 
 .item {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+.item:last-child {
+  margin-bottom: 0;
 }
 
 .item-img {
   width: 60px;
   height: 60px;
-  border-radius: 4px;
-  background: #eee;
-  margin-right: 12px;
+  border-radius: 8px;
+  background: #e8eef5;
+  margin-right: 10px;
 }
 
 .item-info {
@@ -60,17 +66,19 @@
 
 .name {
   font-size: 14px;
+  color: var(--text-primary);
   margin-bottom: 4px;
 }
 
 .price {
   font-size: 12px;
-  color: #999;
+  color: var(--text-secondary);
 }
 
 .item-total {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
+  color: #c74545;
 }
 
 .footer-bar {
@@ -78,25 +86,28 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border-color);
+  z-index: 20;
+}
+
+.total-info {
+  font-size: 13px;
+  color: var(--text-secondary);
 }
 
 .total-price {
-  color: #ff4d4f;
+  color: #c74545;
   font-size: 20px;
   font-weight: 700;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .submit-btn {
   margin: 0;
-  border-radius: 20px;
-  padding: 8px 32px;
-  font-size: 14px;
+  min-width: 130px;
 }

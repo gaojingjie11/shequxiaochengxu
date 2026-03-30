@@ -171,6 +171,7 @@ async function promptPaymentAuth(options = {}) {
         return null;
     }
 
+    let prepareErrorMessage = '';
     try {
         wx.showLoading({ title: '拍照并上传中', mask: true });
         const filePath = await chooseFaceImageFromCamera();
@@ -181,13 +182,16 @@ async function promptPaymentAuth(options = {}) {
         if (isUserCancelError(err)) {
             return null;
         }
-        wx.showToast({
-            title: err?.message || '刷脸支付准备失败',
-            icon: 'none'
-        });
+        prepareErrorMessage = err?.message || '刷脸支付准备失败';
         return null;
     } finally {
         wx.hideLoading();
+        if (prepareErrorMessage) {
+            wx.showToast({
+                title: prepareErrorMessage,
+                icon: 'none'
+            });
+        }
     }
 }
 
